@@ -13,6 +13,7 @@ MongoClient.connect('mongodb://localhost:27017', { useUnifiedTopology: true })
         const playersRouter = createRouter(scoresCollection);
         app.use('/api/players', playersRouter);
     })
+    .catch(console.err);
 
 app.listen(5000, function() {
     console.log('App is running on port 5000');

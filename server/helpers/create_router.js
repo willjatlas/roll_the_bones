@@ -16,7 +16,9 @@ const createRouter = function (collection) {
 
   //SHOW
   router.get('/:id', (req, res) => {
-    console.log("Sanity Check complete")
+    const id = req.params.id;
+    collection.findOne({ _id: ObjectID(id) })
+    .then((doc) => res.json(doc))
   });
 
   return router;
