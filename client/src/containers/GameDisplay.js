@@ -3,32 +3,52 @@ import DiceDisplay from "./DiceDisplay"
 
 const GameDisplay = ()=>{
 
-    const dice = {value: 1, active: true}
+    const dice = {value: 1, active: true , min: 1, max: 6}
+    const dice2 = {value: 1, active: true , min: 1, max: 6}
+    const dice3 = {value: 1, active: true , min: 1, max: 6}
     const stickNumber = 5; 
 
+    const [playerName, setPlayerName]   = useState("");
     const [playerScore, setPlayerScore] = useState(0);
     const [turnScore, setTurnScore]     = useState(0);
-    const [playerName, setPlayerName]   = useState("");
-    const [availDice, setAvailDice]     = useState([dice, dice, dice]);
+    const [availDice, setAvailDice]     = useState([dice, dice2, dice3]);
 
+    // Add the roll value to the players score. 
     const addToPlayerScore = (value)=>{
         let tempNum = playerScore;
         setPlayerScore(value + tempNum);
     }
-    
-    const checkForStickNums = (diceArray) => {
-        let newDiceArray = diceArray.map((element)=>{
+
+    const getRandomInt = (min, max) => {
+        return Math.floor(Math.random() * max) + min;
+    }
+
+    const rollDiceValues = () => {
+        let newDiceArray = availDice.map((element)=>{
+            element.value = getRandomInt(element.min, element.max)
+            return(element);
+        })
+        console.log(`new dice array is : ${newDiceArray}`)
+        setAvailDice(newDiceArray);
+    }
+
+    // Checks a roll for sticking numbers and deactivates die.
+    const checkForStickNums = () => {
+        let newDiceArray = availDice.map((element)=>{
             if(element.value === stickNumber){
-                element.active = false; 
+                element.active = false;
             }
+            return(element);
         });
+        console.log(`new dice array is : ${newDiceArray}`)
         setAvailDice(newDiceArray);
     };
 
-    // Calculates 
-    const calculateRoll = (diceArray) => {
+    // Calculates the players score and and adds it
+    // to the playerScore
+    const calculateRoll = () => {
         let total = 0;
-        diceArray.forEach(element => {
+        availDice.forEach((element) => {
             total += element.value;
         });
         setTurnScore(total)
@@ -36,25 +56,17 @@ const GameDisplay = ()=>{
     };
 
     const handleRollButton = (e)=>{
-        rollDiceValues(availDice);
-        checkForStickNums(availDice);
-        calculateRoll(availDice);
+        rollDiceValues();
+        checkForStickNums();
+        calculateRoll();
     }
-
-
-
-    useEffect(()=>{
-
-    }, [])
-
-    
 
     return(
         <>
-        <h2>Player Score: {playerScore}</h2>
-        <h2>Score This Turn: {turnScore}</h2>
-    
-        <DiceDisplay />
+            <h2>Player Score: {playerScore}</h2>
+            <h2>Score This Turn: {turnScore}</h2>
+            <button onClick={handleRollButton} value="Roll Dice"> Roll Dice </button>
+            <DiceDisplay />
         </>
     );
 

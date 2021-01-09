@@ -10,12 +10,12 @@ const Dice = ()=>{
     return(
         <>
         <p>this is a die</p>
-        <img class="dice-images" src={dice1} alt="Dice Face Showing 1" />
-        <img class="dice-images" src={dice2} alt="Dice Face Showing 1" />
-        <img class="dice-images" src={dice3} alt="Dice Face Showing 1" />
-        <img class="dice-images" src={dice4} alt="Dice Face Showing 1" />
-        <img class="dice-images" src={dice5} alt="Dice Face Showing 1" />
-        <img class="dice-images" src={dice6} alt="Dice Face Showing 1" />
+        <img className="dice-images" src={dice1} alt="Dice Face Showing 1" />
+        <img className="dice-images" src={dice2} alt="Dice Face Showing 1" />
+        <img className="dice-images" src={dice3} alt="Dice Face Showing 1" />
+        <img className="dice-images" src={dice4} alt="Dice Face Showing 1" />
+        <img className="dice-images" src={dice5} alt="Dice Face Showing 1" />
+        <img className="dice-images" src={dice6} alt="Dice Face Showing 1" />
         </>
     )
 
