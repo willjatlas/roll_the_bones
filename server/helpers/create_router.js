@@ -22,9 +22,14 @@ const createRouter = function (collection) {
   });
 
   //UPDATE
-  router.put('/:id', (req, res) => {
-    console.log("sanity check");
-  })
+  router.patch('/:id', (req, res) => {
+    const id = req.params.id;
+    const updateData = req.body;
+    collection.updateOne({ _id: ObjectID(id) }, { $set: updateData })
+    .then((result) => {
+      res.json(result)
+    });
+  });
 
   //DELETE
   router.delete('/:id', (req, res) => {
@@ -33,7 +38,7 @@ const createRouter = function (collection) {
     .then((result) => {
       res.json(result);
     });
-  });
+  })
 
   return router;
 };
