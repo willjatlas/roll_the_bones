@@ -3,25 +3,42 @@ import DiceDisplay from "./DiceDisplay"
 
 const GameDisplay = ()=>{
 
+    const dice = {value: 1, active: true}
+    const stickNumber = 5; 
+
     const [playerScore, setPlayerScore] = useState(0);
     const [turnScore, setTurnScore]     = useState(0);
     const [playerName, setPlayerName]   = useState("");
-    //Decrease diceToRoll as the roll sticking values
-    const [diceToRoll, setDiceToRoll]   = useState(5);
-    //If the value is 0, do not render the dice as it is inactive
-    const [rollValues, setRollValues]   = useState([0,0,0,0,0]);
+    const [availDice, setAvailDice]     = useState([dice, dice, dice]);
 
     const addToPlayerScore = (value)=>{
         let tempNum = playerScore;
         setPlayerScore(value + tempNum);
     }
     
-    const rollDice = ()=>{
-        //Returns the random dier rolls of available dice.
-    }
+    const checkForStickNums = (diceArray) => {
+        let newDiceArray = diceArray.map((element)=>{
+            if(element.value === stickNumber){
+                element.active = false; 
+            }
+        });
+        setAvailDice(newDiceArray);
+    };
 
-    const handleRollButton = ()=>{
-        //Handle the button that rolls the available dice
+    // Calculates 
+    const calculateRoll = (diceArray) => {
+        let total = 0;
+        diceArray.forEach(element => {
+            total += element.value;
+        });
+        setTurnScore(total)
+        addToPlayerScore(total);
+    };
+
+    const handleRollButton = (e)=>{
+        rollDiceValues(availDice);
+        checkForStickNums(availDice);
+        calculateRoll(availDice);
     }
 
 
@@ -35,6 +52,7 @@ const GameDisplay = ()=>{
     return(
         <>
         <h2>Player Score: {playerScore}</h2>
+        <h2>Score This Turn: {turnScore}</h2>
     
         <DiceDisplay />
         </>
