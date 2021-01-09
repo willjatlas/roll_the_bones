@@ -23,10 +23,11 @@ npm install
 
 ## MVP
 
-- Create and design a dice based browser game.
+- Create and design a dice based browser game (Based on the dice game: Stuck in the Mud).
 - Saves a top highscores table to a mongodb using an express server.
 - Five dice total, dice that result in a 2 or a 5 become unplayable.
 - Design some pirate themed images for display (skulls for 2&5) and CSS styling.
+- Add Rules section.
 
 ## Extensions
 
