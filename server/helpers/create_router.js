@@ -21,6 +21,20 @@ const createRouter = function (collection) {
     .then((doc) => res.json(doc))
   });
 
+  //UPDATE
+  router.put('/:id', (req, res) => {
+    console.log("sanity check");
+  })
+
+  //DELETE
+  router.delete('/:id', (req, res) => {
+    const id = req.params.id;
+    collection.deleteOne({ _id: ObjectID(id) })
+    .then((result) => {
+      res.json(result);
+    });
+  });
+
   return router;
 };
 
