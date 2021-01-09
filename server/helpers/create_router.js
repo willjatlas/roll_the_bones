@@ -14,6 +14,11 @@ const createRouter = function (collection) {
     })
   });
 
+  //SHOW
+  router.get('/:id', (req, res) => {
+
+  })
+
   return router;
 };
 
