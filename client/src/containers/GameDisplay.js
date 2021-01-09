@@ -3,6 +3,8 @@ import DiceDisplay from "./DiceDisplay"
 
 const GameDisplay = ()=>{
 
+    // Dice currently hard coded, could use method to return array 
+    // of dice objects, given how many dice to use. 
     const dice = {value: 1, active: true , min: 1, max: 6}
     const dice2 = {value: 1, active: true , min: 1, max: 6}
     const dice3 = {value: 1, active: true , min: 1, max: 6}
