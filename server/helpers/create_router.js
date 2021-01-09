@@ -16,7 +16,7 @@ const createRouter = function (collection) {
 
   //SHOW
   router.get('/:id', (req, res) => {
-    console.log("Sanity Check")
+    console.log("Sanity Check complete")
   });
 
   return router;
