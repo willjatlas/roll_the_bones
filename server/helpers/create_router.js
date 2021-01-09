@@ -21,8 +21,17 @@ const createRouter = function (collection) {
     .then((doc) => res.json(doc))
   });
 
+  //CREATE
+  router.post('/', (req, res) => {
+    const newPlayer = req.body;
+    collection.insertOne(newPlayer)
+    .then((result) => {
+      res.json(result.ops[0])
+    })
+  })
+
   //UPDATE
-  router.patch('/:id', (req, res) => {
+  router.put('/:id', (req, res) => {
     const id = req.params.id;
     const updateData = req.body;
     collection.updateOne({ _id: ObjectID(id) }, { $set: updateData })
