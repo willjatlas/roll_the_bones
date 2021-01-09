@@ -19,10 +19,12 @@ const GameDisplay = ()=>{
         setPlayerScore(value + tempNum);
     }
 
+    // Will return a random number between min & max.
     const getRandomInt = (min, max) => {
         return Math.floor(Math.random() * max) + min;
     }
 
+    // Takes availDice and rolls new values.
     const rollDiceValues = () => {
         let newDiceArray = availDice.map((element)=>{
             element.value = getRandomInt(element.min, element.max)
@@ -45,17 +47,20 @@ const GameDisplay = ()=>{
     };
 
     // Calculates the players score and and adds it
-    // to the playerScore
+    // to the playerScore, sets turnScore. 
     const calculateRoll = () => {
         let total = 0;
         availDice.forEach((element) => {
-            total += element.value;
+            if(element.active === true){
+                total += element.value;
+            } 
         });
         setTurnScore(total)
         addToPlayerScore(total);
     };
 
-    const handleRollButton = (e)=>{
+    // Handles the roll dice button for the game. 
+    const handleRollButton = ()=>{
         rollDiceValues();
         checkForStickNums();
         calculateRoll();
