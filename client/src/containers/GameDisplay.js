@@ -11,6 +11,11 @@ const GameDisplay = ()=>{
     //If the value is 0, do not render the dice as it is inactive
     const [rollValues, setRollValues]   = useState([0,0,0,0,0]);
 
+    const addToPlayerScore = (value)=>{
+        let tempNum = playerScore;
+        setPlayerScore(value + tempNum);
+    }
+    
     const rollDice = ()=>{
         //Returns the random dier rolls of available dice.
     }
@@ -18,6 +23,8 @@ const GameDisplay = ()=>{
     const handleRollButton = ()=>{
         //Handle the button that rolls the available dice
     }
+
+
 
     useEffect(()=>{
 
@@ -27,7 +34,8 @@ const GameDisplay = ()=>{
 
     return(
         <>
-        <h2>this is the game display</h2>
+        <h2>Player Score: {playerScore}</h2>
+    
         <DiceDisplay />
         </>
     );
