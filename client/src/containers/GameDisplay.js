@@ -1,7 +1,5 @@
 import {useState, useEffect} from "react";
 import DiceDisplay from "./DiceDisplay"
-import Popup from 'reactjs-popup';
-
 
 const GameDisplay = ()=>{
 
@@ -22,12 +20,6 @@ const GameDisplay = ()=>{
     const [gameState, setGameState]     = useState(true);
     const [btnDisable, setBtnDisable]   = useState(false);
     
-    // Popup states.
-    const [open, setOpen]               = useState(false);
-    
-    // Setter for popup.
-    const closeModal = () => setOpen(false);
-
     // Add the roll value to the players score. 
     const addToPlayerScore = (value)=>{
         let tempNum = playerScore;
@@ -98,12 +90,11 @@ const GameDisplay = ()=>{
         // If statement catches init render.
         if(gameState !== true){
             setBtnDisable(true);
-            setOpen(o => !o);
         }
     }, [gameState])
 
     return(
-        <>
+        <div id="game-display">
             <h2>Player Score: {playerScore}</h2>
             <h2>Score This Turn: {turnScore}</h2>
             <button id="roll-dice-button" 
@@ -111,15 +102,7 @@ const GameDisplay = ()=>{
                     disabled={btnDisable}> Roll Dice 
             </button>
             <DiceDisplay diceList = {availDice}/>
-            <Popup open={open} closeOnDocumentClick onClose={closeModal}>
-              <div className="modal">
-                <a className="close" onClick={closeModal}>
-                  &times;
-                </a>
-                GAME OVER
-              </div>
-            </Popup>
-        </>
+        </div>
     );
 
 };
