@@ -1,4 +1,6 @@
+use players;
 db.dropDatabase();
+
 db.scores.insertMany([
   {
     playerName: 'Jack Sparrow',
