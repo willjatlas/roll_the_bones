@@ -1,12 +1,18 @@
 import Dice from "../components/Dice"
-const DiceDisplay = ()=>{
+const DiceDisplay = ({diceList})=>{
+
+    const die = diceList.map((element)=>{
+        return(
+            <Dice avail={element.avail} value={element.value} />
+        );
+    });
 
     return(
         <>
         <h3>This is the dice container</h3>
-        <Dice />
+        {die}
         </>
-    )
+    );
 };
 
 export default DiceDisplay;

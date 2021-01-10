@@ -75,7 +75,7 @@ const GameDisplay = ()=>{
             <h2>Player Score: {playerScore}</h2>
             <h2>Score This Turn: {turnScore}</h2>
             <button onClick={handleRollButton} value="Roll Dice"> Roll Dice </button>
-            <DiceDisplay />
+            <DiceDisplay diceList = {availDice}/>
         </>
     );
 
