@@ -1,6 +1,4 @@
-const Home = () => {
-    
-    return(
+const Home = () => 
     <div>
         <h2>Home</h2>
         <p>Welcome aboard ye scallywags!</p>
@@ -10,13 +8,12 @@ const Home = () => {
         <p>add up your total for that roll</p>
         <p>but if ye get a two or a five</p>
         <p>thats bones for you Matey!!</p>
-        <p>those dice won't rolle anymore</p>
+        <p>those dice won't roll anymore</p>
         <p>ye get to keep rolling with the rest untill</p>
         <p>ye run out of dice!!</p>
         <p>your totall gets added up and that'll be your</p>
         <p>final score Matey, you might even make the Leaderboard!</p>
     </div>
-    )
-};
+
 
 export default Home;
