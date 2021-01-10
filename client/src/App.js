@@ -7,7 +7,10 @@ import GameDisplay from "./containers/GameDisplay";
 function App() {
   return (
     <Router>
-      <GameDisplay />
+      <>
+        <Route path="/" component={GameDisplay}/>
+        
+      </>
     </Router>
   );
 }
