@@ -1,9 +1,9 @@
-import Dice from "../components/Dice"
+import Die from "../components/Die"
 const DiceDisplay = ({diceList})=>{
 
     const die = diceList.map((element)=>{
         return(
-            <Dice avail={element.active} value={element.value} />
+            <Die avail={element.active} value={element.value} />
         );
     });
 
