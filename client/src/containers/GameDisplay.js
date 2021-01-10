@@ -23,8 +23,8 @@ const GameDisplay = ()=>{
     const [plyNmDsbl, setPlyrDsbl]      = useState(false);
 
     // Adds the entered player name to the state
-    const handleNameFormButton = (event)=>{
-        setPlayerName(event.target.name);
+    const handleName = (name)=>{
+        setPlayerName(name);
         setBtnDisable(false)
     };
     
@@ -103,7 +103,7 @@ const GameDisplay = ()=>{
 
     return(
         <div id="game-display">
-            <PlayerNameForm handleNameFormButton={handleNameFormButton}/>
+            <PlayerNameForm handleName={handleName}/>
             <h2>Player Score: {playerScore}</h2>
             <h2>Score This Turn: {turnScore}</h2>
             <button id="roll-dice-button" 
