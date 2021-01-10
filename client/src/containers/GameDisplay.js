@@ -1,6 +1,5 @@
 import {useState, useEffect} from "react";
 import DiceDisplay from "./DiceDisplay"
-import GameResults from "../components/GameResults"
 import Popup from 'reactjs-popup';
 
 
@@ -20,9 +19,10 @@ const GameDisplay = ()=>{
     const [playerScore, setPlayerScore] = useState(0);
     const [turnScore, setTurnScore]     = useState(0);
     const [availDice, setAvailDice]     = useState([dice, dice2, dice3, dice4, dice5]);
-    const [gameState, setGameState]     = useState(true)
+    const [gameState, setGameState]     = useState(true);
+    const [btnDisable, setBtnDisable]   = useState(false);
     
-    // Popup state.
+    // Popup states.
     const [open, setOpen]               = useState(false);
     
     // Setter for popup.
@@ -87,15 +87,17 @@ const GameDisplay = ()=>{
             rollDiceValues();
             checkForStickNums();
             calculateRoll();
-        }
-        else{
-            setGameState(false)
-        }; 
-    }
+            if (checkDieAvailable(availDice) === false){
+                setGameState(false);
+            };
+        };
+    };
 
     // watches the game state for when the game is finished. 
     useEffect(()=>{
+        // If statement catches init render.
         if(gameState !== true){
+            setBtnDisable(true);
             setOpen(o => !o);
         }
     }, [gameState])
@@ -104,7 +106,10 @@ const GameDisplay = ()=>{
         <>
             <h2>Player Score: {playerScore}</h2>
             <h2>Score This Turn: {turnScore}</h2>
-            <button onClick={handleRollButton}> Roll Dice </button>
+            <button id="roll-dice-button" 
+                    onClick={handleRollButton} 
+                    disabled={btnDisable}> Roll Dice 
+            </button>
             <DiceDisplay diceList = {availDice}/>
             <Popup open={open} closeOnDocumentClick onClose={closeModal}>
               <div className="modal">
