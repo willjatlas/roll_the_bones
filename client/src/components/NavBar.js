@@ -1,6 +1,6 @@
 import { Link, useHistory } from "react-router-dom";
 
-const NavBar = (params) => {
+const NavBar = () => {
     const history = useHistory();
 
     const back = () => {

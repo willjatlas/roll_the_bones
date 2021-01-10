@@ -22,10 +22,12 @@ function App() {
 
   return (
       <Router>
-        <Route path="/game" component={GameDisplay} />
-        <Route path="/scores" exact render={() => <ScoreTable highScores= {highScores} />}
-        />
-        <Route exact path="/" component={Home}/>
+        <NavBar/>
+
+          <Route path="/game" component={GameDisplay} />
+          <Route path="/scores" exact render={() => <ScoreTable highScores= {highScores} />}
+          />
+          <Route exact path="/" component={Home}/>
       </Router>
   );
 }
