@@ -6,21 +6,34 @@ import dice5 from "../dice_images/Dice5.png"
 import dice6 from "../dice_images/Dice6.png"
 import crossBones from "../dice_images/cross_bones.png"
 
-const Dice = ()=>{
+const Dice = ({avail, value})=>{
+
+    const diceBag = [crossBones, dice1, dice2, dice3,
+                    dice4, dice5, dice6]; 
+
+    const displayDice = ()=>{
+        if(avail != false){
+            return(
+                <img className="dice-images" 
+                     src={diceBag[value]} 
+                     alt="Dice Face Showing {value}" />
+            );
+        }
+        else{
+            return(
+                <img className="dice-images" 
+                     src={diceBag[0]} 
+                     alt="Dice showing Cross Bones" />
+            );
+        };
+    };
 
     return(
         <>
-        <p>this is a die</p>
-        <img className="dice-images" src={dice1} alt="Dice Face Showing 1" />
-        <img className="dice-images" src={dice2} alt="Dice Face Showing 2" />
-        <img className="dice-images" src={dice3} alt="Dice Face Showing 3" />
-        <img className="dice-images" src={dice4} alt="Dice Face Showing 4" />
-        <img className="dice-images" src={dice5} alt="Dice Face Showing 5" />
-        <img className="dice-images" src={dice6} alt="Dice Face Showing 6" />
-        <img className="dice-images" src={crossBones} alt="Dice showing Cross Bones" />
+            {displayDice()}
         </>
-    )
+    );
 
-}
+};
 
 export default Dice;
