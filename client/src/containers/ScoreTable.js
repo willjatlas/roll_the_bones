@@ -1,13 +1,19 @@
 import Score from "../components/Score";
 
-const ScoreTable = () => {
+const ScoreTable = ({highScores}) => {
+
+    const score = highScores.map((element) => {
+        return ( 
+            <Score score ={ element.score } playerName={ element.playerName } />
+        );
+    });
     
+
 
     return (
         <>
-           <Score/>
-           <Score/>
-           <Score/>
+        <h3>High Scores</h3>
+        <p>{score}</p>
         </>
     )
 };
