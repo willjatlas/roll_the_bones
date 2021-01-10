@@ -18,7 +18,7 @@ const NavBar = (params) => {
                 <Link to="/scores">Leaderboard</Link>
             </li>
             <li>
-                <button onClick={goBack}>🔙</button>
+                <button onClick={back}>🔙</button>
             </li>
         </ul>
     )
