@@ -5,6 +5,7 @@ import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 
 import GameDisplay from "./containers/GameDisplay";
 import ScoreTable from "./containers/ScoreTable";
+import Home from "./components/HomePage";
 import { getScores } from "./services/GameServices"; 
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
         <Route path="/game" component={GameDisplay} />
         <Route path="/scores" exact render={() => <ScoreTable highScores= {highScores} />}
         />
+        <Route exact path="/" component={Home}/>
       </Router>
   );
 }
