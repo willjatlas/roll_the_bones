@@ -20,8 +20,9 @@ function App() {
 
   return (
       <>
-        <GameDisplay />
-        <ScoreTable highScores= {highScores} />
+        <Route path="/game" component={GameDisplay} />
+        <Route path="/scores" exact render={() => <ScoreTable highScores= {highScores} />}
+        />
       </>
   );
 }
