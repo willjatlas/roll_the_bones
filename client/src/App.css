@@ -2,3 +2,12 @@
   width: 30px;
   height: 30px;
 } 
+
+.modal{
+  position: relative;
+  margin: auto;
+  pointer-events: auto;
+  background-color: #292d3e;
+  color: #fff;
+  border: 1px solid #464545
+}

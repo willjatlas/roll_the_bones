@@ -12,7 +12,7 @@ const Die = ({avail, value})=>{
                     die4, die5, die6]; 
 
     const displayDice = ()=>{
-        if(avail != false){
+        if(avail !== false){
             return(
                 <img className="dice-images" 
                      src={diceBag[value]} 

@@ -1,5 +1,7 @@
 import {useState, useEffect} from "react";
 import DiceDisplay from "./DiceDisplay"
+import GameResults from "../components/GameResults"
+import Popup from 'reactjs-popup';
 
 
 const GameDisplay = ()=>{
@@ -13,11 +15,18 @@ const GameDisplay = ()=>{
     const dice5 = {value: 1, active: true , min: 1, max: 6}
     const stickNumber = 5; 
 
+    // Game States
     const [playerName, setPlayerName]   = useState("");
     const [playerScore, setPlayerScore] = useState(0);
     const [turnScore, setTurnScore]     = useState(0);
     const [availDice, setAvailDice]     = useState([dice, dice2, dice3, dice4, dice5]);
     const [gameState, setGameState]     = useState(true)
+    
+    // Popup state.
+    const [open, setOpen]               = useState(false);
+    
+    // Setter for popup.
+    const closeModal = () => setOpen(false);
 
     // Add the roll value to the players score. 
     const addToPlayerScore = (value)=>{
@@ -74,26 +83,37 @@ const GameDisplay = ()=>{
  
     // Handles the roll dice button for the game. 
     const handleRollButton = ()=>{
-        if(checkDieAvailable(availDice) != false){
+        if(checkDieAvailable(availDice) !== false){
             rollDiceValues();
             checkForStickNums();
             calculateRoll();
         }
-        else{setGameState(false)}; 
+        else{
+            setGameState(false)
+        }; 
     }
 
     // watches the game state for when the game is finished. 
-    useEffect(()=>{       
-     
+    useEffect(()=>{
+        if(gameState !== true){
+            setOpen(o => !o);
+        }
     }, [gameState])
 
     return(
         <>
             <h2>Player Score: {playerScore}</h2>
             <h2>Score This Turn: {turnScore}</h2>
-            <button onClick={handleRollButton} value="Roll Dice"> Roll Dice </button>
+            <button onClick={handleRollButton}> Roll Dice </button>
             <DiceDisplay diceList = {availDice}/>
-
+            <Popup open={open} closeOnDocumentClick onClose={closeModal}>
+              <div className="modal">
+                <a className="close" onClick={closeModal}>
+                  &times;
+                </a>
+                GAME OVER
+              </div>
+            </Popup>
         </>
     );
 
