@@ -1,11 +1,9 @@
 import Score from "../components/Score";
 
 const ScoreTable = ({highScores}) => {
-
-    const score = highScores.map((element) => {
-        return ( 
-            <Score score ={ element.score } playerName={ element.playerName } />
-        );
+    // TODO: possibly .sort on scores so that they display by score value
+    const scores = highScores.map((element) => {
+        return <li> NAME: { element.playerName } SCORE: { element.score }</li>
     });
     
 
@@ -13,7 +11,7 @@ const ScoreTable = ({highScores}) => {
     return (
         <>
         <h3>High Scores</h3>
-        <p>{score}</p>
+        <ol>{scores}</ol>
         </>
     )
 };
