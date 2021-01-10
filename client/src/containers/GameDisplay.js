@@ -1,6 +1,7 @@
 import {useState, useEffect} from "react";
 import DiceDisplay from "./DiceDisplay"
 
+
 const GameDisplay = ()=>{
 
     // Dice currently hard coded, could use method to return array 
@@ -16,6 +17,7 @@ const GameDisplay = ()=>{
     const [playerScore, setPlayerScore] = useState(0);
     const [turnScore, setTurnScore]     = useState(0);
     const [availDice, setAvailDice]     = useState([dice, dice2, dice3, dice4, dice5]);
+    const [gameState, setGameState]     = useState(true)
 
     // Add the roll value to the players score. 
     const addToPlayerScore = (value)=>{
@@ -63,12 +65,27 @@ const GameDisplay = ()=>{
         addToPlayerScore(total);
     };
 
+    // Checks for active dice.
+    const checkDieAvailable = (diceList) => {
+        let boolList = diceList.map(element=>element.active);
+        let output   = boolList.includes(true);
+        return output;
+    };
+ 
     // Handles the roll dice button for the game. 
     const handleRollButton = ()=>{
-        rollDiceValues();
-        checkForStickNums();
-        calculateRoll();
+        if(checkDieAvailable(availDice) != false){
+            rollDiceValues();
+            checkForStickNums();
+            calculateRoll();
+        }
+        else{setGameState(false)}; 
     }
+
+    // watches the game state for when the game is finished. 
+    useEffect(()=>{       
+     
+    }, [gameState])
 
     return(
         <>
@@ -76,6 +93,7 @@ const GameDisplay = ()=>{
             <h2>Score This Turn: {turnScore}</h2>
             <button onClick={handleRollButton} value="Roll Dice"> Roll Dice </button>
             <DiceDisplay diceList = {availDice}/>
+
         </>
     );
 
