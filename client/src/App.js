@@ -1,10 +1,13 @@
 import {useState, useEffect} from "react";
 import './App.css';
 
-import {BrowerRouter as Router, Route, Switch} from "react-router-dom";
+import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 
 import GameDisplay from "./containers/GameDisplay";
 import ScoreTable from "./containers/ScoreTable";
+import Home from "./components/HomePage";
+import NavBar from "./components/NavBar";
+import ErrorPage from "./components/ErrorPage";
 import { getScores } from "./services/GameServices"; 
 
 function App() {
@@ -19,10 +22,16 @@ function App() {
 
 
   return (
-      <>
-        <GameDisplay />
-        <ScoreTable highScores= {highScores} />
-      </>
+      <Router>
+        <NavBar/>
+          <Switch>
+            <Route path="/game" component={GameDisplay} />
+            <Route path="/scores" exact render={() => <ScoreTable highScores= {highScores} />}
+            />
+            <Route exact path="/" component={Home}/>
+            <Route component={ErrorPage}/>
+          </Switch>
+      </Router>
   );
 }
 
