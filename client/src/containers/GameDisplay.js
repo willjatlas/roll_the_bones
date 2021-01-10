@@ -8,12 +8,14 @@ const GameDisplay = ()=>{
     const dice = {value: 1, active: true , min: 1, max: 6}
     const dice2 = {value: 1, active: true , min: 1, max: 6}
     const dice3 = {value: 1, active: true , min: 1, max: 6}
+    const dice4 = {value: 1, active: true , min: 1, max: 6}
+    const dice5 = {value: 1, active: true , min: 1, max: 6}
     const stickNumber = 5; 
 
     const [playerName, setPlayerName]   = useState("");
     const [playerScore, setPlayerScore] = useState(0);
     const [turnScore, setTurnScore]     = useState(0);
-    const [availDice, setAvailDice]     = useState([dice, dice2, dice3]);
+    const [availDice, setAvailDice]     = useState([dice, dice2, dice3, dice4, dice5]);
 
     // Add the roll value to the players score. 
     const addToPlayerScore = (value)=>{
