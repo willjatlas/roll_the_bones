@@ -1,11 +1,11 @@
-const Score = () => {
+const Score = ({score, playerName}) => {
     
 
 
 
 
     return (
-        <h3>over 9000</h3>
+        <h3>{playerName}, {score}</h3>
     )
 };
 
