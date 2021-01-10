@@ -7,6 +7,7 @@ import GameDisplay from "./containers/GameDisplay";
 import ScoreTable from "./containers/ScoreTable";
 import Home from "./components/HomePage";
 import NavBar from "./components/NavBar";
+import ErrorPage from "./components/ErrorPage";
 import { getScores } from "./services/GameServices"; 
 
 function App() {
@@ -23,11 +24,13 @@ function App() {
   return (
       <Router>
         <NavBar/>
-
-          <Route path="/game" component={GameDisplay} />
-          <Route path="/scores" exact render={() => <ScoreTable highScores= {highScores} />}
-          />
-          <Route exact path="/" component={Home}/>
+          <Switch>
+            <Route path="/game" component={GameDisplay} />
+            <Route path="/scores" exact render={() => <ScoreTable highScores= {highScores} />}
+            />
+            <Route exact path="/" component={Home}/>
+            <Route component={ErrorPage}/>
+          </Switch>
       </Router>
   );
 }
