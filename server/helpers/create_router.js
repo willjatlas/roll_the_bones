@@ -48,7 +48,7 @@ const createRouter = function (collection) {
       res.json(result);
     });
   })
-
+  
   return router;
 };
 
