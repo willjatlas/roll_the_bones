@@ -1,7 +1,7 @@
 import {useState, useEffect} from "react";
 import './App.css';
 
-import {BrowerRouter as Router, Route, Switch} from "react-router-dom";
+import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 
 import GameDisplay from "./containers/GameDisplay";
 import ScoreTable from "./containers/ScoreTable";
@@ -19,11 +19,11 @@ function App() {
 
 
   return (
-      <>
+      <Router>
         <Route path="/game" component={GameDisplay} />
         <Route path="/scores" exact render={() => <ScoreTable highScores= {highScores} />}
         />
-      </>
+      </Router>
   );
 }
 
