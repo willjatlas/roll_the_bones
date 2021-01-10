@@ -1,5 +1,6 @@
 import {useState, useEffect} from "react";
-import DiceDisplay from "./DiceDisplay"
+import DiceDisplay from "./DiceDisplay";
+import PlayerNameForm from "../components/PlayerNameForm";
 
 const GameDisplay = ()=>{
 
@@ -18,7 +19,14 @@ const GameDisplay = ()=>{
     const [turnScore, setTurnScore]     = useState(0);
     const [availDice, setAvailDice]     = useState([dice, dice2, dice3, dice4, dice5]);
     const [gameState, setGameState]     = useState(true);
-    const [btnDisable, setBtnDisable]   = useState(false);
+    const [btnDisable, setBtnDisable]   = useState(true);
+    const [plyNmDsbl, setPlyrDsbl]      = useState(false);
+
+    // Adds the entered player name to the state
+    const handleNameFormButton = (event)=>{
+        setPlayerName(event.target.name);
+        setBtnDisable(false)
+    };
     
     // Add the roll value to the players score. 
     const addToPlayerScore = (value)=>{
@@ -27,12 +35,12 @@ const GameDisplay = ()=>{
     }
 
     // Will return a random number between min & max.
-    const getRandomInt = (min, max) => {
+    const getRandomInt = (min, max)=>{
         return Math.floor(Math.random() * max) + min;
     }
 
     // Takes availDice and rolls new values.
-    const rollDiceValues = () => {
+    const rollDiceValues = ()=>{
         let newDiceArray = availDice.map((element)=>{
             element.value = getRandomInt(element.min, element.max)
             return(element);
@@ -42,7 +50,7 @@ const GameDisplay = ()=>{
     }
 
     // Checks a roll for sticking numbers and deactivates die.
-    const checkForStickNums = () => {
+    const checkForStickNums = ()=>{
         let newDiceArray = availDice.map((element)=>{
             if(element.value === stickNumber){
                 element.active = false;
@@ -55,7 +63,7 @@ const GameDisplay = ()=>{
 
     // Calculates the players score and and adds it
     // to the playerScore, sets turnScore. 
-    const calculateRoll = () => {
+    const calculateRoll = ()=>{
         let total = 0;
         availDice.forEach((element) => {
             if(element.active === true){
@@ -67,7 +75,7 @@ const GameDisplay = ()=>{
     };
 
     // Checks for active dice.
-    const checkDieAvailable = (diceList) => {
+    const checkDieAvailable = (diceList)=>{
         let boolList = diceList.map(element=>element.active);
         let output   = boolList.includes(true);
         return output;
@@ -95,6 +103,7 @@ const GameDisplay = ()=>{
 
     return(
         <div id="game-display">
+            <PlayerNameForm handleNameFormButton={handleNameFormButton}/>
             <h2>Player Score: {playerScore}</h2>
             <h2>Score This Turn: {turnScore}</h2>
             <button id="roll-dice-button" 
