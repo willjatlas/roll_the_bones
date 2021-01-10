@@ -5,7 +5,7 @@ const GameDisplay = ()=>{
 
     // Dice currently hard coded, could use method to return array 
     // of dice objects, given how many dice to use. 
-    const dice = {value: 1, active: true , min: 1, max: 6}
+    const dice  = {value: 1, active: true , min: 1, max: 6}
     const dice2 = {value: 1, active: true , min: 1, max: 6}
     const dice3 = {value: 1, active: true , min: 1, max: 6}
     const dice4 = {value: 1, active: true , min: 1, max: 6}
@@ -75,7 +75,7 @@ const GameDisplay = ()=>{
             <h2>Player Score: {playerScore}</h2>
             <h2>Score This Turn: {turnScore}</h2>
             <button onClick={handleRollButton} value="Roll Dice"> Roll Dice </button>
-            <DiceDisplay />
+            <DiceDisplay diceList = {availDice}/>
         </>
     );
 
