@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import CardBoard from "../components/CardBoard";
 import backImg from "../card_images/back.png";
 import angular from "../card_images/angular.png";
 import css from "../card_images/css.png";
@@ -10,23 +11,12 @@ import scala from "../card_images/scala.png";
 import vue from "../card_images/vue.png"
 
 const CardDisplay = () => {
-
-    const [cards, setCards] = useState(buildCards())
-    const renderCard = card => {
-        const {frontImg, backImg, flipped} = card
-        const img = flipped ? frontImg : backImg
-        return (
-            <div className="Card">
-                <img src={img} alt=""/>
-            </div>
-        )
-    }
-
-    return <div className="CardDisplay">
-        <div className="Board">
-            {cards.map(renderCard)}
+    const cards = buildCards()
+    return (
+        <div className="CardDisplay">
+            <CardBoard cards={cards} />
         </div>
-    </div>
+    )
 }
 
     function buildCards() {
@@ -38,7 +28,7 @@ const CardDisplay = () => {
                 type: item, // Value to check if 2 cards open are same type
                 backImg: backImg, // The placeholder image when card is closed 
                 frontImg: images[item], // The image shown when the card is open
-                flipped: true, // Value to check is card is open or closed
+                flipped: false, // Value to check is card is open or closed
             })
             return [...result, createCard(), createCard()]
         }, [])
