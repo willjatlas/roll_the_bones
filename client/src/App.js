@@ -13,10 +13,25 @@ import { getScores } from "./services/GameServices";
 function App() {
 
   const [highScores, sethighScores] = useState([]);
+  
+  const sortByScore = (hScores)=>{
+    let sortedScores = hScores.sort((element1, element2)=>{
+      return element2.score - element1.score; 
+    });
+    return sortedScores;
+  }
+  
+  const saveHighScore = (player, score)=>{
+
+  }; 
+
+
+  
 
   useEffect(()=> {
       getScores().then((hScores)=>{
-          sethighScores(hScores);
+        let sortedScores = sortByScore(hScores)
+        sethighScores(sortedScores);
       })
   }, []);
 
@@ -25,7 +40,7 @@ function App() {
       <Router>
         <NavBar/>
           <Switch>
-            <Route path="/game" component={GameDisplay} />
+            <Route path="/game" component={GameDisplay} saveHighScore={saveHighScore} />
             <Route path="/scores" exact render={() => <ScoreTable highScores= {highScores} />}
             />
             <Route exact path="/" component={Home}/>

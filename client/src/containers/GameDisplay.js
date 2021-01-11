@@ -2,7 +2,7 @@ import {useState, useEffect} from "react";
 import DiceDisplay from "./DiceDisplay";
 import PlayerNameForm from "../components/PlayerNameForm";
 
-const GameDisplay = ()=>{
+const GameDisplay = ({saveHighScore})=>{
 
     // Dice currently hard coded, could use method to return array 
     // of dice objects, given how many dice to use. 
