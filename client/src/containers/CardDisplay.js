@@ -1,14 +1,14 @@
 import React, {useState} from 'react';
 import CardBoard from "../components/CardBoard";
 import backImg from "../card_images/back.png";
-import angular from "../card_images/angular.png";
-import css from "../card_images/css.png";
-import go from "../card_images/go.png";
-import html from "../card_images/html.png";
-import rail from "../card_images/rail.png";
-import react from "../card_images/react.png";
-import scala from "../card_images/scala.png";
-import vue from "../card_images/vue.png"
+import jack1 from "../card_images/jack1.jpeg";
+import jack2 from "../card_images/jack2.jpeg";
+import jack3 from "../card_images/jack3.jpeg";
+import jack4 from "../card_images/jack4.jpeg";
+import jack5 from "../card_images/jack5.jpeg";
+import jack6 from "../card_images/jack6.jpeg";
+import jack7 from "../card_images/jack7.jpeg";
+import jack8 from "../card_images/jack8.jpg";
 
 const CardDisplay = () => {
     const cards = buildCards()
@@ -21,7 +21,7 @@ const CardDisplay = () => {
 
     function buildCards() {
         let id = 0
-        const images = {angular, css, go, html, rail, react, scala, vue}
+        const images = {jack1, jack2, jack3, jack4, jack5, jack6, jack7, jack8}
         const cards = Object.keys(images).reduce((result, item) => {
             const createCard = () => ({
                 id: id++, // Unique identify of each card
