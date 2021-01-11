@@ -8,7 +8,7 @@ import ScoreTable from "./containers/ScoreTable";
 import Home from "./components/HomePage";
 import NavBar from "./components/NavBar";
 import ErrorPage from "./components/ErrorPage";
-import { getScores } from "./services/GameServices"; 
+import { getScores, postScores } from "./services/GameServices"; 
 
 function App() {
 
@@ -21,12 +21,26 @@ function App() {
     return sortedScores;
   }
   
-  const saveHighScore = (player, score)=>{
+  const checkNewHighScore = (player, score)=>{
+    let newScore = {
+      playerName: player,
+      score: score
+    }
+
+    let tempScores = highScores;
+    tempScores.push(newScore);
+    let sortedScores = sortByScore(tempScores);
+    sortedScores.pop();
+
+    if(sortedScores.includes(newScore) != true){
+      return false;
+    }
+    else{
+      postScores(sortedScores);
+      return true;
+    };
 
   }; 
-
-
-  
 
   useEffect(()=> {
       getScores().then((hScores)=>{
@@ -40,7 +54,7 @@ function App() {
       <Router>
         <NavBar/>
           <Switch>
-            <Route path="/game" component={GameDisplay} saveHighScore={saveHighScore} />
+            <Route path="/game" exact render={()=> <GameDisplay checkNewHighScore={checkNewHighScore} />}/>
             <Route path="/scores" exact render={() => <ScoreTable highScores= {highScores} />}
             />
             <Route exact path="/" component={Home}/>

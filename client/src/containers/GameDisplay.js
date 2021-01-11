@@ -2,7 +2,7 @@ import {useState, useEffect} from "react";
 import DiceDisplay from "./DiceDisplay";
 import PlayerNameForm from "../components/PlayerNameForm";
 
-const GameDisplay = ({saveHighScore})=>{
+const GameDisplay = ({checkNewHighScore})=>{
 
     // Dice currently hard coded, could use method to return array 
     // of dice objects, given how many dice to use. 
@@ -21,6 +21,7 @@ const GameDisplay = ({saveHighScore})=>{
     const [gameState, setGameState]     = useState(true);
     const [btnDisable, setBtnDisable]   = useState(true);
     const [plyrNmDsbl, setPlyrNmDsbl]   = useState(false);
+    const [highScore, setHighScore]     = useState(false)
 
     // Adds the entered player name to the state
     const handleName = (name)=>{
@@ -99,7 +100,7 @@ const GameDisplay = ({saveHighScore})=>{
         // If statement catches init render.
         if(gameState !== true){
             setBtnDisable(true);
-
+            setHighScore(checkNewHighScore(playerName, playerScore))
         }
     }, [gameState])
 
