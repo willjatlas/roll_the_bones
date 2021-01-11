@@ -5,6 +5,11 @@
 
 .Card{
   flex: 1;
+  user-select: none;
+  box-sizing: border-box;
+  transition: 0.6s;
+  position: relative;
+
 }
 
 .Card:hover{
