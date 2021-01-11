@@ -20,12 +20,13 @@ const GameDisplay = ()=>{
     const [availDice, setAvailDice]     = useState([dice, dice2, dice3, dice4, dice5]);
     const [gameState, setGameState]     = useState(true);
     const [btnDisable, setBtnDisable]   = useState(true);
-    const [plyNmDsbl, setPlyrDsbl]      = useState(false);
+    const [plyrNmDsbl, setPlyrNmDsbl]   = useState(false);
 
     // Adds the entered player name to the state
     const handleName = (name)=>{
         setPlayerName(name);
-        setBtnDisable(false)
+        setBtnDisable(false);
+        setPlyrNmDsbl(true);
     };
     
     // Add the roll value to the players score. 
@@ -98,12 +99,13 @@ const GameDisplay = ()=>{
         // If statement catches init render.
         if(gameState !== true){
             setBtnDisable(true);
+
         }
     }, [gameState])
 
     return(
         <div id="game-display">
-            <PlayerNameForm handleName={handleName}/>
+            <PlayerNameForm handleName={handleName} />
             <h2>Player Score: {playerScore}</h2>
             <h2>Score This Turn: {turnScore}</h2>
             <button id="roll-dice-button" 
