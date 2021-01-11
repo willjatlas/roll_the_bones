@@ -15,7 +15,7 @@ const PlayerNameForm = ({handleName, disabled})=>{
                     <input type="text" 
                            id="name"
                            placeholder="Name..."
-                           maxLength="15"
+                           maxLength="30"
                            required/>
                 </div>
                 <input type="submit" value="Save" id="save"/>

@@ -32,7 +32,7 @@ function App() {
     let sortedScores = sortByScore(tempScores);
     sortedScores.pop();
 
-    if(sortedScores.includes(newScore) != true){
+    if(sortedScores.includes(newScore) !== true){
       return false;
     }
     else{

@@ -3,7 +3,7 @@ const DiceDisplay = ({diceList})=>{
 
     const die = diceList.map((element)=>{
         return(
-            <Die avail={element.active} value={element.value} />
+            <Die avail={element.active} value={element.value} key={element._id} />
         );
     });
 
