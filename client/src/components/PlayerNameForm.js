@@ -1,4 +1,4 @@
-const PlayerNameForm = ({handleName})=>{
+const PlayerNameForm = ({handleName, disabled})=>{
     
     const onSubmit = (event)=>{
         event.preventDefault();
@@ -7,9 +7,9 @@ const PlayerNameForm = ({handleName})=>{
     }
 
     return(
-        <>
+        <div id="player-name-form" style={disabled ? {pointerEvents: "none", opacity: "0.4"} : {}}>
             <form onSubmit={onSubmit} id="name-entry-form" >
-                <h2>Enter Your Name</h2>
+                <h2>Enter Ye Pirate Name</h2>
                 <div className="form-element">
                     <label htmlFor="name">Name: </label>
                     <input type="text" 
@@ -20,7 +20,7 @@ const PlayerNameForm = ({handleName})=>{
                 </div>
                 <input type="submit" value="Save" id="save"/>
 	        </form>
-        </>
+        </div>
     );
 };
 
