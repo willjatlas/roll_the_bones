@@ -36,7 +36,7 @@ function App() {
       return false;
     }
     else{
-      postScores(sortedScores);
+      postScores(newScore);
       return true;
     };
 
@@ -45,7 +45,8 @@ function App() {
   useEffect(()=> {
       getScores().then((hScores)=>{
         let sortedScores = sortByScore(hScores)
-        sethighScores(sortedScores);
+        let top10 = sortedScores.slice(0,10);
+        sethighScores(top10);
       })
   }, []);
 

@@ -37,3 +37,17 @@ npm install
 - Could add a memory game segment using the image resources.
 
 
+## Rules
+
+Welcome aboard ye scallywags!
+Avast, up for a game of Roll the Bones?
+You'll have to be canny!
+Ye have 5 dice, ye get to roll them all and
+add up your total for that roll
+but if ye get a two or a five
+thats bones for you Matey!!
+those dice won't roll anymore
+ye get to keep rolling with the rest untill
+ye run out of dice!!
+your totall gets added up and that'll be your
+final score Matey, you might even make the Leaderboard
