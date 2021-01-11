@@ -1,5 +1,13 @@
 import React, {useState} from 'react';
 import backImg from "../card_images/back.png";
+import angular from "../card_images/angular.png";
+import css from "../card_images/css.png";
+import go from "../card_images/go.png";
+import html from "../card_images/html.png";
+import rail from "../card_images/rail.png";
+import react from "../card_images/react.png";
+import scala from "../card_images/scala.png";
+import vue from "../card_images/vue.png"
 
 const CardDisplay = () => {
 
@@ -9,7 +17,7 @@ const CardDisplay = () => {
         const img = flipped ? frontImg : backImg
         return (
             <div className="Card">
-                <img className="card-image" src={img} alt=""/>
+                <img src={img} alt=""/>
             </div>
         )
     }
@@ -23,26 +31,16 @@ const CardDisplay = () => {
 
     function buildCards() {
         let id = 0
-        const images = {
-            angular: 'url to img',
-            css: 'url to img',
-            html: 'url to img',
-            go: 'url to img',
-            rail: 'url to img',
-            react: 'url to img',
-            scala: 'url to img',
-            vue: 'url to img',
-        }
-        const cards = Object.keys(images).reduce((result,key) => {
+        const images = {angular, css, go, html, rail, react, scala, vue}
+        const cards = Object.keys(images).reduce((result, item) => {
             const createCard = () => ({
                 id: id++, // Unique identify of each card
-                type: key, // Value to check if 2 cards open are same type
+                type: item, // Value to check if 2 cards open are same type
                 backImg: backImg, // The placeholder image when card is closed 
-                frontImg: 'url to frontImg', // The image shown when the card is open
+                frontImg: images[item], // The image shown when the card is open
                 flipped: false, // Value to check is card is open or closed
             })
-            result.push(createCard())
-            return result
+            return [...result, createCard(), createCard()]
         }, [])
         return cards
     }
