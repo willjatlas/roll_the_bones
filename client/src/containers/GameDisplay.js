@@ -2,7 +2,7 @@ import {useState, useEffect} from "react";
 import DiceDisplay from "./DiceDisplay";
 import PlayerNameForm from "../components/PlayerNameForm";
 
-const GameDisplay = ()=>{
+const GameDisplay = ({checkNewHighScore})=>{
 
     // Dice currently hard coded, could use method to return array 
     // of dice objects, given how many dice to use. 
@@ -14,18 +14,20 @@ const GameDisplay = ()=>{
     const stickNumber = 5; 
 
     // Game States
-    const [playerName, setPlayerName]   = useState("");
+    const [playerName, setPlayerName]   = useState("Player");
     const [playerScore, setPlayerScore] = useState(0);
     const [turnScore, setTurnScore]     = useState(0);
     const [availDice, setAvailDice]     = useState([dice, dice2, dice3, dice4, dice5]);
     const [gameState, setGameState]     = useState(true);
     const [btnDisable, setBtnDisable]   = useState(true);
-    const [plyNmDsbl, setPlyrDsbl]      = useState(false);
+    const [plyrNmDsbl, setPlyrNmDsbl]   = useState(false);
+    const [highScore, setHighScore]     = useState(false);
 
     // Adds the entered player name to the state
     const handleName = (name)=>{
         setPlayerName(name);
-        setBtnDisable(false)
+        setBtnDisable(false);
+        setPlyrNmDsbl(true);
     };
     
     // Add the roll value to the players score. 
@@ -98,13 +100,15 @@ const GameDisplay = ()=>{
         // If statement catches init render.
         if(gameState !== true){
             setBtnDisable(true);
+            setHighScore(checkNewHighScore(playerName, playerScore))
         }
     }, [gameState])
 
     return(
         <div id="game-display">
-            <PlayerNameForm handleName={handleName}/>
-            <h2>Player Score: {playerScore}</h2>
+            <PlayerNameForm handleName={handleName} 
+                            disabled={plyrNmDsbl}  />
+            <h2>{playerName}'s Score : {playerScore}</h2>
             <h2>Score This Turn: {turnScore}</h2>
             <button id="roll-dice-button" 
                     onClick={handleRollButton} 

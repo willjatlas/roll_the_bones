@@ -30,4 +30,16 @@ db.scores.insertMany([
     playerName: 'Anne Bonny',
     score: 23,
   }
+  {
+    playerName: 'Black Beard',
+    score: 9001,
+  }
+  {
+    playerName: 'Captain Kid',
+    score: 100,
+  }
+  {
+    playerName: 'Calico Jack',
+    score: 85,
+  }
 ]);
