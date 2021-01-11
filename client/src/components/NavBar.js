@@ -18,6 +18,9 @@ const NavBar = () => {
                 <Link to="/scores">Leaderboard</Link>
             </li>
             <li>
+                <Link to="/memoryGame">Memory Game</Link>
+            </li>
+            <li>
                 <button onClick={back}>🔙</button>
             </li>
         </ul>

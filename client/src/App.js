@@ -8,7 +8,7 @@ import ScoreTable from "./containers/ScoreTable";
 import Home from "./components/HomePage";
 import NavBar from "./components/NavBar";
 import ErrorPage from "./components/ErrorPage";
-import { getScores } from "./services/GameServices"; 
+import { getScores } from "./services/GameServices";
 
 function App() {
 
