@@ -1,9 +1,17 @@
+body{
+  font-family: 'pirateyFont';
+}
+
 .dice-images{
   width: 70px;
   height: 70px;
 } 
 
-.modal{
+.result{
+  width: 400px;
+  height: 350px;
+  font-size: large;
+  
   position: relative;
   margin: auto;
   pointer-events: auto;

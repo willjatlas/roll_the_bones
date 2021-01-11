@@ -7,6 +7,12 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+@font-face {
+  font-family: 'pirateyfont';
+  src: local('pirateyFont'), url(./fonts/pirateyFont.ttf) format('truetype');
+  font-weight: normal;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;

@@ -4,7 +4,7 @@ const Home = () =>
         <p>Welcome aboard ye scallywags!</p>
         <p>Avast, up for a game of Roll the Bones?</p>
         <p>You'll have to be canny!</p>
-        <p>Ye have 5 dice, ye get to roll them all and</p>
+        <p>Ye have five dice, ye get to roll them all and</p>
         <p>add up your total for that roll</p>
         <p>but if ye get a two or a five</p>
         <p>thats bones for you Matey!!</p>

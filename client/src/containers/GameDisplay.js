@@ -1,4 +1,4 @@
-import {useState, useEffect} from "react";
+import {useState, useEffect, useRef} from "react";
 import DiceDisplay from "./DiceDisplay";
 import PlayerNameForm from "../components/PlayerNameForm";
 import Popup from 'reactjs-popup';
@@ -97,19 +97,19 @@ const GameDisplay = ({checkNewHighScore})=>{
         };
     };
 
-    // example of a popup
-    // const PopupExample = () => {
-        
-    // }
+    const [open, setOpen] = useState(false);
+    const ref = useRef();
+    const closeResults = () => ref.current.close();
 
     // watches the game state for when the game is finished. 
     useEffect(()=>{
         // If statement catches init render.
         if(gameState !== true){
             setBtnDisable(true);
+            setOpen(o => !o);
             setHighScore(checkNewHighScore(playerName, playerScore))
         }
-    }, [gameState])
+    }, [gameState]);
 
     return(
         <div id="game-display">
@@ -120,8 +120,17 @@ const GameDisplay = ({checkNewHighScore})=>{
                     onClick={handleRollButton} 
                     disabled={btnDisable}> Roll Dice 
             </button>
-            <Popup trigger={<button> This makes popups</button>} position="right center">
-            <div>Popup content here !!</div>
+            
+            <Popup open={open}>
+                <div className="result">
+                    <element 
+                      className="close" 
+                      onClick={closeResults}
+                    >
+                    ☠️;
+                    </element>
+                Blow me down, what a score! {playerScore}
+                </div>
             </Popup>
             <DiceDisplay diceList = {availDice}/>
         </div>
