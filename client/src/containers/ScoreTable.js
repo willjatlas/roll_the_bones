@@ -15,11 +15,7 @@ const ScoreTable = ({highScores}) => {
     //     return comparison;
     // }
 
-    const sortedScores = highScores.sort((element1, element2) => {
-        return element2.score - element1.score;
-    });
-
-    const scores = sortedScores.map((element) => {
+    const scores = highScores.map((element) => {
         return <li> NAME: { element.playerName } SCORE: { element.score }</li>
     });
 
