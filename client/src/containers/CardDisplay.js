@@ -38,11 +38,23 @@ const CardDisplay = () => {
                 type: item, // Value to check if 2 cards open are same type
                 backImg: backImg, // The placeholder image when card is closed 
                 frontImg: images[item], // The image shown when the card is open
-                flipped: false, // Value to check is card is open or closed
+                flipped: true, // Value to check is card is open or closed
             })
             return [...result, createCard(), createCard()]
         }, [])
-        return cards
+        return shuffle(cards)
+    }
+
+    function shuffle(arr) {
+        let len = arr.length
+        for (let i = 0; i < len; i++) {
+            let randomIdx = Math.floor(Math.random() * len)
+            let copyCurrent = {...arr[i]}
+            let copyRandom = {...arr[randomIdx]}
+            arr[i] = copyRandom
+            arr[randomIdx] = copyCurrent
+        }
+        return arr
     }
 
 export default CardDisplay;
