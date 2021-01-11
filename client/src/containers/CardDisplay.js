@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import CardBoard from "../components/CardBoard";
-import backImg from "../card_images/back.png";
+import backImg from "../card_images/back.jpeg";
 import jack1 from "../card_images/jack1.jpeg";
 import jack2 from "../card_images/jack2.jpeg";
 import jack3 from "../card_images/jack3.jpeg";
