@@ -1,7 +1,12 @@
-const ResultsPage = ({playerName, score, highScore})=>{
+const ResultsPage = (props)=>{
 
+    console.log(props);
     return(
-        <h1>This is the results page</h1>
+        
+        <h2> Ye made of with a total of {props.location.state.playerScore}
+        gold pieces, cap'n {props.location.state.playerName}!
+        </h2>
+       
     )
 
 }

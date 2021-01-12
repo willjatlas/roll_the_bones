@@ -121,12 +121,16 @@ const GameDisplay = ({checkNewHighScore})=>{
                     disabled={btnDisable}> ROLL YER DICE! 
             </button>
             <DiceDisplay diceList = {availDice}/>
-            <div id="results-link-wrap" style={finBtnDsbl ? {pointerEvents: "none", opacity: "0.4"} : {}}>
+            <div id="results-link-wrap" style={finBtnDsbl ? {pointerEvents: "none", opacity: "0.0"} : {}}>
                 <Link id="results-link"
-                    to="/resultsPage" 
-                    playerName={playerName} 
-                    score={playerScore} 
-                    highScore={highScore}> SEE YER RESULTS!</Link>
+                    to={{
+                        pathname: "/resultsPage",
+                        state:{
+                            playerName,
+                            playerScore,
+                            highScore
+                        }
+                    }}> SEE YER RESULTS!</Link>
             </div>
         </div>
     );
