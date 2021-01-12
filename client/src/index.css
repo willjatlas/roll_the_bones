@@ -8,8 +8,20 @@ body {
 }
 
 @font-face {
-  font-family: 'pirateyfont';
-  src: local('pirateyFont'), url(./fonts/pirateyFont.ttf) format('truetype');
+  font-family: 'pirateyFont';
+  src: local('pirateFont'), url(./fonts/pirateyFont.ttf) format('truetype');
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: 'Blackstone-Hand';
+  src: local('Blackstone-Hand'), url(./fonts/Blackstone-Hand.ttf) format('truetype');
+  /* font-weight: normal; */
+}
+
+@font-face {
+  font-family: 'jsl-ancient-normal';
+  src: local('jsl-ancient-normal'), url(./fonts/jsl-ancient.normal.ttf) format('truetype');
   font-weight: normal;
 }
 
