@@ -98,16 +98,6 @@ const GameDisplay = ({checkNewHighScore})=>{
             };
         };
     };
-
-    // Redirects the player to the results page. 
-    // const resultRedirect = ()=>{
-    //     return(
-    //         <Redirect to="/resultsPage" 
-    //                   playerName={playerName} 
-    //                   score={playerScore} 
-    //                   highScore={highScore}/>
-    //     ); 
-    // };
     
     // watches the game state for when the game is finished. 
     useEffect(()=>{
