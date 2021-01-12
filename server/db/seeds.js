@@ -4,31 +4,31 @@ db.dropDatabase();
 db.scores.insertMany([
   {
     playerName: 'Jack Sparrow',
-    score: 30,
+    score: 12,
   },
   {
     playerName: 'Captain Hook',
-    score: 14,
+    score: 4,
   },
   {
     playerName: 'Mr Smee',
-    score: 35,
+    score: 9,
   },
   {
     playerName: 'Davy Jones',
-    score: 56,
+    score: 7,
   },
   {
     playerName: 'John Silver',
-    score: 60,
+    score: 21,
   },
   {
     playerName: 'Edward Teach',
-    score: 99,
+    score: 13,
   },
   {
     playerName: 'Anne Bonny',
-    score: 23,
+    score: 17,
   },
   {
     playerName: 'Black Beard',

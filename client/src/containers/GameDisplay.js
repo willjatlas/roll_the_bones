@@ -12,7 +12,7 @@ const GameDisplay = ({checkNewHighScore})=>{
     const dice3 = {value: 1, active: true , min: 1, max: 6}
     const dice4 = {value: 1, active: true , min: 1, max: 6}
     const dice5 = {value: 1, active: true , min: 1, max: 6}
-    const stickNumber = 5; 
+    const stickNumbers = [2,5]; 
 
     // Game States
     const [playerName, setPlayerName]   = useState("Player");
@@ -58,7 +58,7 @@ const GameDisplay = ({checkNewHighScore})=>{
     // Checks a roll for sticking numbers and deactivates die.
     const checkForStickNums = ()=>{
         let newDiceArray = availDice.map((element)=>{
-            if(element.value === stickNumber){
+            if(stickNumbers.includes(element.value) === true){
                 element.active = false;
             }
             return(element);
