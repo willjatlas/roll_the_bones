@@ -1,14 +1,35 @@
+import {Link} from "react-router-dom";
 const ResultsPage = (props)=>{
 
-    console.log(props);
-    return(
-        
-        <h2> Ye made of with a total of {props.location.state.playerScore}
-        gold pieces, cap'n {props.location.state.playerName}!
-        </h2>
-       
-    )
+    const displayResult = ()=>{
+        if(props.location.state.highScore !== true){
+            return(
+                <>
+                    <h1>Avast Cap'n {props.location.state.playerName}</h1>
+                    <h2>Ye made off with {props.location.state.playerScore} gold pieces!
+                    </h2>
+                    <p>...but ye failed to set a new high score!</p>
+                </>
+            );
+        }
+        else{
+            return(
+                <>
+                    <h1>AVAST YE!, Cap'n {props.location.state.playerName}</h1>
+                    <h2>Ye made off with {props.location.state.playerScore}
+                    gold pieces, and ye set a new HIGHSCORE!!!</h2>
+                    <Link id="results-link" to="/scores"> HIGHSCORES </Link>
+                </>
+            );
+        };
+    };
 
-}
+    return( 
+        <>
+            {displayResult()}
+        </>
+    );
+
+};
 
 export default ResultsPage;
