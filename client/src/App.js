@@ -12,8 +12,10 @@ import { getScores, postScores } from "./services/GameServices";
 
 function App() {
 
+  // Use States
   const [highScores, sethighScores] = useState([]);
   
+  // Sorts by score and returns the inputted score list.
   const sortByScore = (hScores)=>{
     let sortedScores = hScores.sort((element1, element2)=>{
       return element2.score - element1.score; 
@@ -21,6 +23,8 @@ function App() {
     return sortedScores;
   }
   
+  //Returns true if the score is a new score on the top 10 table.
+  //Returns false if the score doesn't.
   const checkNewHighScore = (player, score)=>{
     let newScore = {
       playerName: player,
