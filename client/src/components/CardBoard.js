@@ -44,13 +44,53 @@ const CardBoard = props => {
     setCards(newCards)
   }, [checkers, completed])
 
+  function startTime () {
+    var timeContainer = document.getElementById("timer-value");
+    var startButton = document.getElementById("start-game");
+    var timer = 0;
+    var maxTime = 40;
+    var timeout = null;
+    function count () {
+      timeout = setTimeout(function() {
+        if (timer < maxTime) {
+          timer++;
+          timeContainer.innerText = timer;
+          count();
+        }
+        else {
+          alert("Time is up! ye failed its th' plank wit' ye!");
+          startButton.style.display = "inline-block";
+        }
+      }, 1000);
+    }
+    function endGame () {
+      clearTimeout(timeout);
+      startButton.style.display = "inline-block";
+      alert("Ye completed th' game in this time! Jack Sparrow be Yo Ho Ho!");
+    }
+
+    function startGame () {
+      if (timeout) { clearTimeout(timeout); }
+      timer = 0;
+      timeContainer.innerText = timer;
+      this.style.display = "none";
+      count();
+    }
+    document.getElementById("start-game").addEventListener("click", startGame);
+    document.getElementById("end-game").addEventListener("click", endGame);
+  }
+
   return (
     <div className="CardBoard">
       {cards.map(card => (
         <Card {...card} onClick={onCardClick(card)} key={card.id} />
       ))}
+      <h3>Timer: <span id="timer-value">0</span></h3>
+      <button id="start-game" onClick={startTime}>Start Game</button>
+      <button id="end-game">End Game</button>
     </div>
   )
 }
+
 
 export default CardBoard;
