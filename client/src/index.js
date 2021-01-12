@@ -4,6 +4,8 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import './fonts/pirateyFont.ttf';
+import './fonts/Blackstone-Hand.ttf';
+import './fonts/jsl-ancient.normal.ttf';
 
 ReactDOM.render(
   <React.StrictMode>
