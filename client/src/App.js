@@ -5,10 +5,12 @@ import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 
 import GameDisplay from "./containers/GameDisplay";
 import ScoreTable from "./containers/ScoreTable";
+import CardDisplay from "./containers/CardDisplay";
 import Home from "./components/HomePage";
 import NavBar from "./components/NavBar";
 import ErrorPage from "./components/ErrorPage";
 import { getScores, postScores } from "./services/GameServices"; 
+
 
 function App() {
 
@@ -62,6 +64,7 @@ function App() {
             <Route path="/game" exact render={()=> <GameDisplay checkNewHighScore={checkNewHighScore} />}/>
             <Route path="/scores" exact render={() => <ScoreTable highScores= {highScores} />}
             />
+            <Route path="/memoryGame" component={CardDisplay} />
             <Route exact path="/" component={Home}/>
             <Route component={ErrorPage}/>
           </Switch>
