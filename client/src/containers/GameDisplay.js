@@ -2,6 +2,7 @@ import {useState, useEffect, useRef} from "react";
 import DiceDisplay from "./DiceDisplay";
 import PlayerNameForm from "../components/PlayerNameForm";
 import Popup from 'reactjs-popup';
+import {Link} from "react-router-dom";
 
 
 const GameDisplay = ({checkNewHighScore})=>{
@@ -24,6 +25,7 @@ const GameDisplay = ({checkNewHighScore})=>{
     const [btnDisable, setBtnDisable]   = useState(true);
     const [plyrNmDsbl, setPlyrNmDsbl]   = useState(false);
     const [highScore, setHighScore]     = useState(false);
+    const [finBtnDsbl, setFinButDsble]  = useState(true);
 
     // Adds the entered player name to the state
     const handleName = (name)=>{
@@ -96,17 +98,13 @@ const GameDisplay = ({checkNewHighScore})=>{
             };
         };
     };
-
-    const [open, setOpen] = useState(false);
-    const ref = useRef();
-    const closeResults = () => ref.current.close();
-
+    
     // watches the game state for when the game is finished. 
     useEffect(()=>{
         // If statement catches init render.
         if(gameState !== true){
             setBtnDisable(true);
-            setOpen(o => !o);
+            setFinButDsble(false);
             setHighScore(checkNewHighScore(playerName, playerScore))
         }
     }, [gameState]);
@@ -115,25 +113,21 @@ const GameDisplay = ({checkNewHighScore})=>{
         <div id="game-display">
             <PlayerNameForm handleName={handleName} 
                             disabled={plyrNmDsbl}  />
+                            
             <h2>{playerName}'s Score : {playerScore}</h2>
             <h2>Score This Turn: {turnScore}</h2>
-            <button id="roll-dice-button" 
+            <button id="buttons" 
                     onClick={handleRollButton} 
-                    disabled={btnDisable}> Roll Dice 
+                    disabled={btnDisable}> ROLL YER DICE! 
             </button>
-            
-            <Popup open={open}>
-                <div className="result">
-                    <element 
-                      className="close" 
-                      onClick={closeResults}
-                    >
-                    ☠️;
-                    </element>
-                Blow me down, what a score! {playerScore}
-                </div>
-            </Popup>
             <DiceDisplay diceList = {availDice}/>
+            <div id="results-link-wrap" style={finBtnDsbl ? {pointerEvents: "none", opacity: "0.4"} : {}}>
+                <Link id="results-link"
+                    to="/resultsPage" 
+                    playerName={playerName} 
+                    score={playerScore} 
+                    highScore={highScore}> SEE YER RESULTS!</Link>
+            </div>
         </div>
     );
 
