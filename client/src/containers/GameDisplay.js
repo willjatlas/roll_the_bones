@@ -2,6 +2,7 @@ import {useState, useEffect} from "react";
 import {Link} from "react-router-dom";
 import DiceDisplay from "./DiceDisplay";
 import PlayerNameForm from "../components/PlayerNameForm";
+import "./GameDisplay.css";
 
 const GameDisplay = ({checkNewHighScore})=>{
 
@@ -113,12 +114,16 @@ const GameDisplay = ({checkNewHighScore})=>{
         <div id="game-display">
             <PlayerNameForm handleName={handleName} 
                             disabled={plyrNmDsbl}  />
-                            
-            <h2>{playerName}'s Score : {playerScore}</h2>
-            <h2>Score This Turn: {turnScore}</h2>
+
+            <div className="score-wraps">             
+                <h2>{playerName}'s Score : {playerScore}</h2>
+            </div> 
+            <div className="score-wraps"> 
+                <h2>Score This Turn : {turnScore}</h2>
+            </div> 
             <button id="buttons" 
                     onClick={handleRollButton} 
-                    disabled={btnDisable}> ROLL YER DICE! 
+                    disabled={btnDisable}> ROLL YE'R DICE! 
             </button>
             <DiceDisplay diceList = {availDice}/>
             <div id="results-link-wrap" 

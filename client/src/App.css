@@ -2,13 +2,8 @@ body{
   /* font-family: 'Blackstone-Hand'; */
   /* font-family: 'pirateyFont'; */
   font-family: 'jsl-ancient-normal';
+  padding: 20px;
 }
-
-.dice-images{
-  width: 70px;
-  height: 70px;
-} 
-
 
 .result{
   width: 400px;

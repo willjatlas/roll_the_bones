@@ -8,10 +8,9 @@ const DiceDisplay = ({diceList})=>{
     });
 
     return(
-        <>
-        <h3>This is the dice container</h3>
+        <div id="dice-display">
         {die}
-        </>
+        </div>
     );
 };
 
