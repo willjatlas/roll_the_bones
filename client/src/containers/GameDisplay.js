@@ -1,9 +1,7 @@
-import {useState, useEffect, useRef} from "react";
+import {useState, useEffect} from "react";
+import {Link} from "react-router-dom";
 import DiceDisplay from "./DiceDisplay";
 import PlayerNameForm from "../components/PlayerNameForm";
-import Popup from 'reactjs-popup';
-import {Link} from "react-router-dom";
-
 
 const GameDisplay = ({checkNewHighScore})=>{
 
@@ -22,9 +20,11 @@ const GameDisplay = ({checkNewHighScore})=>{
     const [turnScore, setTurnScore]     = useState(0);
     const [availDice, setAvailDice]     = useState([dice, dice2, dice3, dice4, dice5]);
     const [gameState, setGameState]     = useState(true);
-    const [btnDisable, setBtnDisable]   = useState(true);
-    const [plyrNmDsbl, setPlyrNmDsbl]   = useState(false);
+    
+    
     const [highScore, setHighScore]     = useState(false);
+    const [plyrNmDsbl, setPlyrNmDsbl]   = useState(false);
+    const [btnDisable, setBtnDisable]   = useState(true);
     const [finBtnDsbl, setFinButDsble]  = useState(true);
 
     // Adds the entered player name to the state
@@ -121,12 +121,18 @@ const GameDisplay = ({checkNewHighScore})=>{
                     disabled={btnDisable}> ROLL YER DICE! 
             </button>
             <DiceDisplay diceList = {availDice}/>
-            <div id="results-link-wrap" style={finBtnDsbl ? {pointerEvents: "none", opacity: "0.4"} : {}}>
+            <div id="results-link-wrap" 
+                 style={finBtnDsbl ? {pointerEvents: "none", 
+                                      opacity: "0.0"} : {}}>
                 <Link id="results-link"
-                    to="/resultsPage" 
-                    playerName={playerName} 
-                    score={playerScore} 
-                    highScore={highScore}> SEE YER RESULTS!</Link>
+                    to={{
+                        pathname: "/resultsPage",
+                        state:{
+                            playerName,
+                            playerScore,
+                            highScore
+                        }
+                    }}> SEE YER RESULTS!</Link>
             </div>
         </div>
     );
