@@ -1,10 +1,10 @@
-import die1 from "../dice_images/Dice1.png"
-import die2 from "../dice_images/Dice2.png"
-import die3 from "../dice_images/Dice3.png"
-import die4 from "../dice_images/Dice4.png"
-import die5 from "../dice_images/Dice5.png"
-import die6 from "../dice_images/Dice6.png"
-import crossBones from "../dice_images/cross_bones.png"
+import die1 from "../images/Dice1.png"
+import die2 from "../images/Dice2.png"
+import die3 from "../images/Dice3.png"
+import die4 from "../images/Dice4.png"
+import die5 from "../images/Dice5.png"
+import die6 from "../images/Dice6.png"
+import crossBones from "../images/cross_bones.png"
 
 const Die = ({avail, value})=>{
 

@@ -10,7 +10,7 @@ import Home from "./components/HomePage";
 import NavBar from "./components/NavBar";
 import ErrorPage from "./components/ErrorPage";
 import ResultsPage from "./components/ResultsPage";
-import { getScores, postScores } from "./services/GameServices"; 
+import { getScores, postScores, deleteScore } from "./services/GameServices"; 
 
 
 function App() {
@@ -37,7 +37,8 @@ function App() {
     let tempScores = highScores;
     tempScores.push(newScore);
     let sortedScores = sortByScore(tempScores);
-    sortedScores.pop();
+    let toDelete = sortedScores.pop();
+    deleteScore(toDelete._id)
 
     if(sortedScores.includes(newScore) !== true){
       return false;
