@@ -9,7 +9,7 @@ const ResultsPage = (props)=>{
             return(
                 <>
                     <h1>Avast {MakeRandTitle()} {MakeRandPrefix()} {props.location.state.playerName}</h1>
-                    <h2>Ye made off with {props.location.state.playerScore} g pieces!
+                    <h2>Ye made off with {props.location.state.playerScore} g pieces!</h2>
                     <p>...but ye failed to set a new high score!</p>
                     <Link id="results-link" to="/"> SAIL HOME </Link>
                 </>
