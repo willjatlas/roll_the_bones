@@ -5,6 +5,8 @@ import PlayerNameForm from "../components/PlayerNameForm";
 import useSound from 'use-sound';
 import rolldice from '../sounds/rolldice.mp3'
 import "./GameDisplay.css";
+import useSound from 'use-sound';
+import rolldice from '../sounds/rolldice.mp3'
 
 const GameDisplay = ({checkNewHighScore})=>{
 
@@ -16,6 +18,9 @@ const GameDisplay = ({checkNewHighScore})=>{
     const dice4 = {value: 1, active: true , min: 1, max: 6}
     const dice5 = {value: 1, active: true , min: 1, max: 6}
     const stickNumbers = [2,5]; 
+
+    //roll dice sound
+    const [play] = useSound(rolldice);
 
     // Game States
     const [playerName, setPlayerName]   = useState("Player");
