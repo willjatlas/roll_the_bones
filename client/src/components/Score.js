@@ -1,7 +1,7 @@
 const Score = ({score, playerName}) => {
 
     return (
-        <li>{playerName}      with a score of: {score}</li>
+        <li>{playerName}, with a score of: {score}</li>
     )
 };
 
