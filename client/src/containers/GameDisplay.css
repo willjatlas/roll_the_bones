@@ -111,6 +111,7 @@ body{
 }
 
 .labels{
+    margin: 10px;
     font-weight: bold;
     font-size: large;
 }
