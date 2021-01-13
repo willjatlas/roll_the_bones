@@ -12,8 +12,6 @@ body{
 
 .navbar{
   margin: 20px;
-  color: wheat;
-  font-size: 20px;
   font-family: 'pirateyFont';
   list-style-type: none;
   justify-content: space-around;
@@ -28,8 +26,13 @@ body{
 }
 
 .navbar-link{
+  background-color: rgba(204, 184, 184, 0.849);
   color: darkslategrey;
   text-decoration: none;
+  font-size: 23px;
+  border: 3px solid burlywood;
+  border-radius: 4px;
+  margin: 3px;
 }
 
 .navbar-link:visited{
@@ -39,6 +42,7 @@ body{
 .navbar-link:hover{
   text-decoration: underline;
   color: darkblue;
+  background-color: seashell;
 }
 
 
