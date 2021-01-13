@@ -77,3 +77,12 @@ body {
     border-radius: 10px;
 }
 
+.results {
+    font-size: 30px;
+    height: 300px;
+    width: 300px;
+    background-color: rgb(238, 198, 145);
+    border: 4px solid burlywood;
+    border-radius: 4px;
+}
+

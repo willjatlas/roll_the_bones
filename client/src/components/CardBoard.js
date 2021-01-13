@@ -1,7 +1,8 @@
-import React, {useState, useEffect, Component} from 'react'
+import React, {useState, useEffect, Component, useRef} from 'react'
 import Card from "./Card";
 import './CardBoard.css';
 import useSound from 'use-sound';
+import Popup from 'reactjs-popup';
 
 const CardBoard = props => {
   const [cards, setCards] = useState(props.cards)
@@ -45,10 +46,18 @@ const CardBoard = props => {
     setCards(newCards)
   }, [checkers, completed])
 
+  const [openLose, setOpenLose] =useState(false);
+  const [openWin, setOpenWin] =useState(false);
+  const ref = useRef;
+  const closeResults = () => {
+    setOpenWin(false) 
+    setOpenLose(false)
+  };
+  let timer = 0;
+
   function startTime () {
     var timeContainer = document.getElementById("timer-value");
     var startButton = document.getElementById("start-game");
-    var timer = 0;
     var maxTime = 35;
     var timeout = null;
     function count () {
@@ -59,15 +68,17 @@ const CardBoard = props => {
           count();
         }
         else {
-          alert("Time is up!\nye failed its th' plank wit' ye!");
-          startButton.style.display = "inline-block";
+          {setOpenLose(true)}
+          // alert(`Time is up!\nye failed its th' plank wit' ye!`);
+          // startButton.style.display = "inline-block";
         }
       }, 1000);
     }
     function endGame () {
       clearTimeout(timeout);
       startButton.style.display = "inline-block";
-      alert("Ye completed th' game in this time!\nJack Sparrow be Yo Ho Ho!");
+      // alert(`Ye completed th' game in ${timer} seconds!\nJack Sparrow be Yo Ho Ho!`);
+      setOpenWin(true) 
     }
 
     function startGame () {
@@ -89,6 +100,18 @@ const CardBoard = props => {
       <h3 className="timer-font">Timer: <span id="timer-value">0</span></h3>
       <button id="start-game" onClick={startTime}>Start Game</button>
       <button id="end-game">End Game</button>
+      <Popup open={openLose} id="timeUp"> 
+        <div className='results'>
+          <element className="close" onClick={closeResults}>☠️ </element>
+          Time is up! Ye failed its th' plank wit' ye!
+        </div>
+      </Popup>
+      <Popup open={openWin} id="finished">
+        <div className='results'>
+          <element className="close" onClick={closeResults}>☠️ </element>
+          <text>Ye completed th' game in {timer} seconds! Jack Sparrow be Yo Ho Ho!</text>
+        </div>
+      </Popup>
     </div>
   )
 }

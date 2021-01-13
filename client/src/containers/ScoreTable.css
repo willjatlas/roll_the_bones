@@ -1,0 +1,11 @@
+.score-table {
+    border: 5px solid burlywood;
+    border-radius: 4px;
+    background-color: rgb(232, 201, 161);
+    font-size: 20px;
+    box-shadow: 4px 4px #888888;
+}
+
+.score-table > li {
+    margin: 3px;
+}
