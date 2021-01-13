@@ -77,7 +77,6 @@ const CardBoard = props => {
     }
     function endGame () {
       clearTimeout(timeout);
-      startButton.style.display = "inline-block";
       setOpenWin(true) 
     }
 
