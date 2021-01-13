@@ -2,6 +2,7 @@ body{
   /* font-family: 'Blackstone-Hand'; */
   /* font-family: 'pirateyFont'; */
   font-family: 'jsl-ancient-normal';
+  background-color: blanchedalmond;
 }
 
 .dice-images{
@@ -9,6 +10,22 @@ body{
   height: 70px;
 } 
 
+.navbar{
+  margin: 20px;
+  color: wheat;
+  font-size: 14px;
+  font-family: 'pirateyFont';
+  list-style-type: none;
+  justify-content: space-around;
+  flex-direction: row;
+  flex-wrap: nowrap;
+}
+
+.navbar > li{
+  padding-left: 15px;
+  padding-right: 15px;
+  display: inline-block;
+}
 
 .result{
   width: 400px;

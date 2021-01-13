@@ -7,7 +7,10 @@ const NavBar = () => {
         history.goBack();
     }
     return (
-        <ul>
+        <nav class="navbar">
+            <li>
+                <a href="javascript:history.{back}">Back</a>
+            </li>
             <li>
                 <Link to="/">Home</Link>
             </li>
@@ -20,10 +23,7 @@ const NavBar = () => {
             <li>
                 <Link to="/memoryGame">Memory Game</Link>
             </li>
-            <li>
-                <button onClick={back}>🔙</button>
-            </li>
-        </ul>
+        </nav>
     )
 }
 
