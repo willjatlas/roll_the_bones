@@ -49,8 +49,10 @@ const GameDisplay = ({checkNewHighScore})=>{
     // Takes availDice and rolls new values.
     const rollDiceValues = ()=>{
         let newDiceArray = availDice.map((element)=>{
-            element.value = getRandomInt(element.min, element.max)
-            return(element);
+            if (element.active !== false) {
+                element.value = getRandomInt(element.min, element.max)
+                return(element)
+            };
         })
         console.log(`new dice array is : ${newDiceArray}`)
         setAvailDice(newDiceArray);
