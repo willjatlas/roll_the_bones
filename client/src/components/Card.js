@@ -1,5 +1,5 @@
 import React from 'react';
-import '../App.css';
+import './Card.css';
 
 const Card = props => {
     const {frontImg, backImg, flipped, onClick} = props

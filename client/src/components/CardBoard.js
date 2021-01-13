@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import Card from "./Card";
-import '../App.css';
+import './CardBoard.css';
 
 const CardBoard = props => {
   const [cards, setCards] = useState(props.cards)
