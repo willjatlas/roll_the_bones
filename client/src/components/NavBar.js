@@ -9,7 +9,7 @@ const NavBar = () => {
     return (
         <nav class="navbar">
             <li>
-                <a href="javascript:history.{back}">Back</a>
+                <a href="javascript:history.back()">Back</a>
             </li>
             <li>
                 <Link to="/">Home</Link>
