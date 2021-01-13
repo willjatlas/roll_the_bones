@@ -2,6 +2,8 @@ import {useState, useEffect} from "react";
 import {Link} from "react-router-dom";
 import DiceDisplay from "./DiceDisplay";
 import PlayerNameForm from "../components/PlayerNameForm";
+import useSound from 'use-sound';
+import rolldice from '../sounds/rolldice.mp3'
 import "./GameDisplay.css";
 
 const GameDisplay = ({checkNewHighScore})=>{
@@ -27,6 +29,9 @@ const GameDisplay = ({checkNewHighScore})=>{
     const [plyrNmDsbl, setPlyrNmDsbl]   = useState(false);
     const [btnDisable, setBtnDisable]   = useState(true);
     const [finBtnDsbl, setFinButDsble]  = useState(true);
+
+    // Roll dice sound
+    const [play] = useSound(rolldice);
 
     // Adds the entered player name to the state
     const handleName = (name)=>{
@@ -91,6 +96,7 @@ const GameDisplay = ({checkNewHighScore})=>{
     // Handles the roll dice button for the game. 
     const handleRollButton = ()=>{
         if(checkDieAvailable(availDice) !== false){
+            play();
             rollDiceValues();
             checkForStickNums();
             calculateRoll();
