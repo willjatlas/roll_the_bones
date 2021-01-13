@@ -22,7 +22,7 @@ const GameDisplay = ({checkNewHighScore})=>{
     const [availDice, setAvailDice]     = useState([dice, dice2, dice3, dice4, dice5]);
     const [gameState, setGameState]     = useState(true);
     
-    
+    // States for div visability.
     const [highScore, setHighScore]     = useState(false);
     const [plyrNmDsbl, setPlyrNmDsbl]   = useState(false);
     const [btnDisable, setBtnDisable]   = useState(true);
