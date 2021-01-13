@@ -13,7 +13,7 @@ body{
 .navbar{
   margin: 20px;
   color: wheat;
-  font-size: 14px;
+  font-size: 20px;
   font-family: 'pirateyFont';
   list-style-type: none;
   justify-content: space-around;
@@ -26,6 +26,21 @@ body{
   padding-right: 15px;
   display: inline-block;
 }
+
+.navbar-link{
+  color: darkslategrey;
+  text-decoration: none;
+}
+
+.navbar-link:visited{
+  color: midnightblue;
+}
+
+.navbar-link:hover{
+  text-decoration: underline;
+  color: darkblue;
+}
+
 
 .result{
   width: 400px;
