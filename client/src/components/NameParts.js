@@ -12,19 +12,19 @@ export const TITLES = [
 ]
 
 export const PREFIXES = [
-    'one-eyed',
-    'peg-leg',
-    'long-john',
-    'dirty',
-    'jolly',
-    'dead-eye',
-    'bucko',
-    "ol'",
-    'sharkbait',
-    'red',
-    'mad',
-    'squidlips',
-    'patches',
-    'barnacle',
-    'hookey'
+    "'One-Eyed'",
+    "'Peg-Leg'",
+    "'Long-John'",
+    "'Dirty'",
+    "'Jolly'",
+    "'Dead-Eye'",
+    "'Bucko'",
+    "'Ol'",
+    "'Sharkbait'",
+    "'Red'",
+    "'Mad'",
+    "'Squidlips'",
+    "'Patches'",
+    "'Barnacle'",
+    "'Hookey'"
 ]
