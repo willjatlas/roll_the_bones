@@ -1,9 +1,9 @@
 .score-table {
     border: 5px solid burlywood;
     border-radius: 4px;
-    background-color: blanchedalmond;
+    background-color: rgba(255, 235, 205, 0.801);
     font-size: 30px;
-    box-shadow: 4px 4px #555555;
+    box-shadow: 4px 4px #555555c4;
     text-align: center;
 }
 

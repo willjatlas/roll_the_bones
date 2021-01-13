@@ -9,6 +9,7 @@
     align-items: center;
     text-align: center;
     display:flex;
+    box-shadow: 6px 6px #5555559d;
 }
 
 content{
@@ -25,4 +26,5 @@ content{
     border-style: solid;
     border-color: rgb(247, 241, 223);
     background-color: rgb(247, 241, 223);
+    box-shadow: 2px 2px #555555;
 } 
