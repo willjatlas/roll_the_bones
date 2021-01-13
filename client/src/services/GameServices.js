@@ -17,4 +17,9 @@ export const postScores = (payload) => {
   .then(res => res.json())
 }
 
-// PUT: updateBooking
+// Delete: delete by ID
+export const deleteScore = (id)=> {
+  return fetch(baseURL + id, {
+    method: 'DELETE'
+  });
+}

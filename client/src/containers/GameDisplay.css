@@ -1,22 +1,34 @@
+body{
+    background-image: url("../images/background.jpg");
+    background-size: cover; 
+}
+
 #game-display{
     display: grid;
     column-gap: 10px;
     row-gap: 10px;
     grid-template-columns: 30% auto;
-    grid-template-rows: 150px 70px 70px 60px;
+    grid-template-rows: 45% 20% 20% 15%;
 }
 
 .player-name-form{
     border-radius: 20px;
+    border-width: 10px;
+    border-style: solid;
+    border-color: rgb(247, 241, 223);
     background-color: rgb(34, 38, 58);
-    color: rgb(209, 200, 171);
+    color: rgb(247, 241, 223);
     display: flex;
     justify-content: center;
     align-items: center;
+    text-align: center;
 }
 
 .score-wraps{
     border-radius: 20px;
+    border-width: 10px;
+    border-style: solid;
+    border-color: rgb(247, 241, 223);
     background-color: rgb(34, 38, 58);
     color: rgb(209, 200, 171);
     display: flex;
@@ -25,6 +37,9 @@
 }
 
 #dice-display{
+    border-width: 10px;
+    border-style: solid;
+    border-color: rgb(247, 241, 223);
     grid-column-start: 2;
     grid-column-end: 3;
     grid-row-start: 1;
@@ -47,6 +62,57 @@
     border-style: solid;
     border-color: black;
     border-width: 5px;
-    background-color: rgb(209, 200, 171);
+    background-color: rgb(247, 241, 223);
 
 }
+
+#results-link-wrap{
+    border-radius: 20px;
+    border-width: 10px;
+    border-style: solid;
+    border-color: rgb(247, 241, 223);
+    background-color: rgb(34, 38, 58);
+    color: rgb(247, 241, 223);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#results-link{
+    color: rgb(247, 241, 223);
+    font-family: 'jsl-ancient-normal';
+    font-size: larger;
+    font-weight:bold;
+    text-decoration: none;
+}
+
+#name{
+    background-color: rgb(247, 241, 223);
+    height: 30px;
+    border-radius: 10px;
+    font-family: 'jsl-ancient-normal';
+    font-size: larger;
+    font-weight:bold;
+}
+
+.buttons{
+    margin:5px;
+    border-radius: 10px;
+    background-color: rgb(247, 241, 223);
+    font-family: 'jsl-ancient-normal';
+    font-size: larger;
+    font-weight:bold;
+    color: rgb(34, 38, 58);
+}
+
+.buttons:hover{
+    background-color: rgb(65, 223, 226);
+    color: rgb(34, 38, 58);   
+}
+
+.labels{
+    font-weight: bold;
+    font-size: large;
+}
+
+

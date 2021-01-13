@@ -12,14 +12,15 @@ const PlayerNameForm = ({handleName, disabled})=>{
             <form onSubmit={onSubmit} id="name-entry-form" >
                 <h2>Enter Ye' Pirate Name</h2>
                 <div className="form-element">
-                    <label htmlFor="name">Cap'n: </label>
+                    <label className="labels" 
+                           htmlFor="name">Cap'n: </label>
                     <input type="text" 
                            id="name"
                            placeholder="Name..."
                            maxLength="30"
                            required/>
                 </div>
-                <input type="submit" value="Save" id="save"/>
+                <input className="buttons" type="submit" value="Save" id="save"/>
 	        </form>
         </div>
     );

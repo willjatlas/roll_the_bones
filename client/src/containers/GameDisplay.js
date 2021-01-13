@@ -121,9 +121,10 @@ const GameDisplay = ({checkNewHighScore})=>{
             <div className="score-wraps"> 
                 <h2>Score This Turn : {turnScore}</h2>
             </div> 
-            <button id="buttons" 
+            <button className="buttons" 
                     onClick={handleRollButton} 
-                    disabled={btnDisable}> ROLL YE'R DICE! 
+                    style={btnDisable ? {pointerEvents: "none", 
+                                         opacity: "0.0"} : {}}> ROLL YE'R DICE! 
             </button>
             <DiceDisplay diceList = {availDice}/>
             <div id="results-link-wrap" 
