@@ -53,12 +53,14 @@ const CardBoard = props => {
     setOpenWin(false) 
     setOpenLose(false)
   };
-  let timer = 0;
+  
+  const [endTime, setEndTime] = useState(0);
 
   function startTime () {
     var timeContainer = document.getElementById("timer-value");
     var startButton = document.getElementById("start-game");
     var maxTime = 35;
+    var timer = 0;
     var timeout = null;
     function count () {
       timeout = setTimeout(function() {
@@ -66,18 +68,16 @@ const CardBoard = props => {
           timer++;
           timeContainer.innerText = timer;
           count();
+          setEndTime(timer);
         }
         else {
           {setOpenLose(true)}
-          // alert(`Time is up!\nye failed its th' plank wit' ye!`);
-          // startButton.style.display = "inline-block";
         }
       }, 1000);
     }
     function endGame () {
       clearTimeout(timeout);
       startButton.style.display = "inline-block";
-      // alert(`Ye completed th' game in ${timer} seconds!\nJack Sparrow be Yo Ho Ho!`);
       setOpenWin(true) 
     }
 
@@ -109,7 +109,7 @@ const CardBoard = props => {
       <Popup open={openWin} id="finished">
         <div className='results'>
           <element className="close" onClick={closeResults}>☠️ </element>
-          <text>Ye completed th' game in {timer} seconds! Jack Sparrow be Yo Ho Ho!</text>
+          <text>Ye completed th' game in {endTime} seconds! Jack Sparrow be Yo Ho Ho!</text>
         </div>
       </Popup>
     </div>
