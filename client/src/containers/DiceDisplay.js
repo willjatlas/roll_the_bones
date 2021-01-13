@@ -1,4 +1,5 @@
 import Die from "../components/Die"
+
 const DiceDisplay = ({diceList})=>{
 
     const die = diceList.map((element)=>{
@@ -8,10 +9,9 @@ const DiceDisplay = ({diceList})=>{
     });
 
     return(
-        <>
-        <h3>This is the dice container</h3>
-        {die}
-        </>
+        <div id="dice-display">
+                {die}
+        </div>
     );
 };
 

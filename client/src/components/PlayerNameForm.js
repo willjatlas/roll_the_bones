@@ -7,18 +7,20 @@ const PlayerNameForm = ({handleName, disabled})=>{
     }
 
     return(
-        <div id="player-name-form" style={disabled ? {pointerEvents: "none", opacity: "0.4"} : {}}>
+        <div className="player-name-form" style={disabled ? {pointerEvents: "none",
+                                                      opacity: "0.4"} : {}}>
             <form onSubmit={onSubmit} id="name-entry-form" >
-                <h2>Enter Ye Pirate Name</h2>
+                <h2>Enter Ye' Pirate Name</h2>
                 <div className="form-element">
-                    <label htmlFor="name">Name: </label>
+                    <label className="labels" 
+                           htmlFor="name">Cap'n: </label>
                     <input type="text" 
                            id="name"
                            placeholder="Name..."
                            maxLength="30"
                            required/>
                 </div>
-                <input type="submit" value="Save" id="save"/>
+                <input className="buttons" type="submit" value="Save" id="save"/>
 	        </form>
         </div>
     );

@@ -1,9 +1,8 @@
-import {useState, useEffect, useRef} from "react";
+import {useState, useEffect} from "react";
+import {Link} from "react-router-dom";
 import DiceDisplay from "./DiceDisplay";
 import PlayerNameForm from "../components/PlayerNameForm";
-import Popup from 'reactjs-popup';
-import {Link} from "react-router-dom";
-
+import "./GameDisplay.css";
 
 const GameDisplay = ({checkNewHighScore})=>{
 
@@ -14,7 +13,7 @@ const GameDisplay = ({checkNewHighScore})=>{
     const dice3 = {value: 1, active: true , min: 1, max: 6}
     const dice4 = {value: 1, active: true , min: 1, max: 6}
     const dice5 = {value: 1, active: true , min: 1, max: 6}
-    const stickNumber = 5; 
+    const stickNumbers = [2,5]; 
 
     // Game States
     const [playerName, setPlayerName]   = useState("Player");
@@ -22,9 +21,11 @@ const GameDisplay = ({checkNewHighScore})=>{
     const [turnScore, setTurnScore]     = useState(0);
     const [availDice, setAvailDice]     = useState([dice, dice2, dice3, dice4, dice5]);
     const [gameState, setGameState]     = useState(true);
-    const [btnDisable, setBtnDisable]   = useState(true);
-    const [plyrNmDsbl, setPlyrNmDsbl]   = useState(false);
+    
+    
     const [highScore, setHighScore]     = useState(false);
+    const [plyrNmDsbl, setPlyrNmDsbl]   = useState(false);
+    const [btnDisable, setBtnDisable]   = useState(true);
     const [finBtnDsbl, setFinButDsble]  = useState(true);
 
     // Adds the entered player name to the state
@@ -58,7 +59,7 @@ const GameDisplay = ({checkNewHighScore})=>{
     // Checks a roll for sticking numbers and deactivates die.
     const checkForStickNums = ()=>{
         let newDiceArray = availDice.map((element)=>{
-            if(element.value === stickNumber){
+            if(stickNumbers.includes(element.value) === true){
                 element.active = false;
             }
             return(element);
@@ -113,20 +114,31 @@ const GameDisplay = ({checkNewHighScore})=>{
         <div id="game-display">
             <PlayerNameForm handleName={handleName} 
                             disabled={plyrNmDsbl}  />
-                            
-            <h2>{playerName}'s Score : {playerScore}</h2>
-            <h2>Score This Turn: {turnScore}</h2>
-            <button id="buttons" 
+
+            <div className="score-wraps">             
+                <h2>{playerName}'s Score : {playerScore}</h2>
+            </div> 
+            <div className="score-wraps"> 
+                <h2>Score This Turn : {turnScore}</h2>
+            </div> 
+            <button className="buttons" 
                     onClick={handleRollButton} 
-                    disabled={btnDisable}> ROLL YER DICE! 
+                    style={btnDisable ? {pointerEvents: "none", 
+                                         opacity: "0.0"} : {}}> ROLL YE'R DICE! 
             </button>
             <DiceDisplay diceList = {availDice}/>
-            <div id="results-link-wrap" style={finBtnDsbl ? {pointerEvents: "none", opacity: "0.4"} : {}}>
+            <div id="results-link-wrap" 
+                 style={finBtnDsbl ? {pointerEvents: "none", 
+                                      opacity: "0.0"} : {}}>
                 <Link id="results-link"
-                    to="/resultsPage" 
-                    playerName={playerName} 
-                    score={playerScore} 
-                    highScore={highScore}> SEE YER RESULTS!</Link>
+                    to={{
+                        pathname: "/resultsPage",
+                        state:{
+                            playerName,
+                            playerScore,
+                            highScore
+                        }
+                    }}> SEE YER RESULTS!</Link>
             </div>
         </div>
     );
