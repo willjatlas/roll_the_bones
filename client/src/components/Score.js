@@ -1,8 +1,10 @@
 const Score = ({score, playerName}) => {
 
     return (
-        <li>{playerName}, with a score of: {score}</li>
-    )
+        <div>
+            <li id="score">{playerName}, with a score of :   {score}</li>
+        </div>
+    );
 };
 
 export default Score;

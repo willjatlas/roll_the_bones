@@ -24,7 +24,7 @@ const PlayerNameForm = ({handleName, disabled})=>{
                            maxLength="30"
                            required/>
                 </div>
-                <input className="buttons" type="submit" value="Save" id="save"/>
+                <input className="save-buttons" type="submit" value="Save" id="save"/>
 	        </form>
         </div>
     );

@@ -7,13 +7,18 @@
     text-align: center;
 }
 
-.score-table > li {
+#score{
     margin: 10px;
-    color: rgb(102, 12, 12)
-
 }
 
-h1 {
+.ordered-list{
+    margin:0;
+}
+
+h5 {
+    margin: 0;
+    padding-top: 10px;
+    padding-bottom: 10px;
     text-align: center;
     font-size: 45px;
     color: rgb(102, 12, 12)

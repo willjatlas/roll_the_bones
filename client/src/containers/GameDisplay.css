@@ -8,7 +8,7 @@ body{
     column-gap: 10px;
     row-gap: 10px;
     grid-template-columns: 30% auto;
-    grid-template-rows: 45% 20% 20% 15%;
+    grid-template-rows: 250px 100px 100px 100px;
 }
 
 .player-name-form{
@@ -25,6 +25,7 @@ body{
 }
 
 .score-wraps{
+    padding: 10px;
     border-radius: 20px;
     border-width: 10px;
     border-style: solid;
@@ -102,16 +103,46 @@ body{
 .buttons{
     margin:5px;
     border-radius: 10px;
+    border-width: 10px;
+    border-style: solid;
+    border-color: rgb(34, 38, 58, 0.753);
     background-color: rgb(247, 241, 223);
     font-family: 'jsl-ancient-normal';
-    font-size: larger;
-    font-weight:bold;
+    font-size: 26pt;
+    font-style: italic;
+    font-weight: bolder;
+    color: rgb(34, 38, 58);
+}
+
+.save-buttons{
+    margin:20px;
+    border-radius: 10px;
+    border-width: 5px;
+    border-style: solid;
+    background-color: rgb(247, 241, 223);
+    font-family: 'jsl-ancient-normal';
+    font-size: 18pt;
+    font-style: italic;
+    font-weight: bolder;
     color: rgb(34, 38, 58);
 }
 
 .buttons:hover{
     background-color: rgb(65, 223, 226);
-    color: rgb(34, 38, 58);   
+    color: rgb(34, 38, 58);
+    background-image: url("../card_images/jack5.jpeg"); 
+    background-size:cover;
+    background-position: 0px -120px;
+    color: rgb(247, 241, 223);
+}
+
+.save-buttons:hover{
+    background-color: rgb(65, 223, 226);
+    color: rgb(34, 38, 58);
+    background-image: url("../card_images/jack5.jpeg"); 
+    background-size:cover;
+    background-position: 0px -10px;
+    color: rgb(247, 241, 223);
 }
 
 .labels{
