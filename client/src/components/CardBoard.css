@@ -65,3 +65,9 @@ body {
     border-top-color: #4f2a0e;
     background: #4f2a0e;
 }
+
+.timer-font {
+    font-size: 28px;
+    color:rgb(28, 28, 28);
+}
+

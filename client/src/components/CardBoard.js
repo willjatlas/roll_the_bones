@@ -1,6 +1,8 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect, Component} from 'react'
 import Card from "./Card";
 import './CardBoard.css';
+import useSound from 'use-sound';
+import shorebirds from '../sounds/shorebirds.mp3';
 
 const CardBoard = props => {
   const [cards, setCards] = useState(props.cards)
@@ -85,7 +87,7 @@ const CardBoard = props => {
       {cards.map(card => (
         <Card {...card} onClick={onCardClick(card)} key={card.id} />
       ))}
-      <h3>Timer: <span id="timer-value">0</span></h3>
+      <h3 className="timer-font">Timer: <span id="timer-value">0</span></h3>
       <button id="start-game" onClick={startTime}>Start Game</button>
       <button id="end-game">End Game</button>
     </div>
