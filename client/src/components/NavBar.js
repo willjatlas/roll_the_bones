@@ -1,4 +1,5 @@
 import { Link, useHistory } from "react-router-dom";
+import './NavBar.css';
 
 const NavBar = () => {
     const history = useHistory();

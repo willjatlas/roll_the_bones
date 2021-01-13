@@ -1,4 +1,5 @@
 import Score from "../components/Score";
+import './ScoreTable.css';
 
 const ScoreTable = ({highScores}) => {
     
@@ -9,7 +10,7 @@ const ScoreTable = ({highScores}) => {
     return (
         <>
         <h3>High Scores</h3>
-        <ol>{score}</ol>
+        <ol className="score-table">{score}</ol>
         </>
     )
 };
