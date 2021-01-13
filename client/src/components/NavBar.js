@@ -7,23 +7,23 @@ const NavBar = () => {
         history.goBack();
     }
     return (
-        <ul>
+        <nav class="navbar">
             <li>
-                <Link to="/">Home</Link>
+                <a className='navbar-link' href="javascript:history.back()">Back</a>
             </li>
             <li>
-                <Link to="/game">New Game</Link>
+                <Link className='navbar-link' to="/">Home</Link>
             </li>
             <li>
-                <Link to="/scores">Leaderboard</Link>
+                <Link className='navbar-link' to="/game">New Game</Link>
             </li>
             <li>
-                <Link to="/memoryGame">Memory Game</Link>
+                <Link className='navbar-link' to="/scores">Leaderboard</Link>
             </li>
             <li>
-                <button onClick={back}>🔙</button>
+                <Link className='navbar-link' to="/memoryGame">Memory Game</Link>
             </li>
-        </ul>
+        </nav>
     )
 }
 
