@@ -10,6 +10,7 @@
     margin: 2px;
     box-shadow: 2px 2px #888888;
     transition: all 0.3s ease;
+    text-align: center;
   }
   
   .Card:hover{
@@ -20,5 +21,6 @@
   
   .Card img{
     width: 100px;
-    height: 100px;
+    height: 160px;
+    object-fit: contain;
   }

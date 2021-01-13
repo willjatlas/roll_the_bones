@@ -24,6 +24,7 @@ const NavBar = () => {
             <li>
                 <Link className='navbar-link' to="/memoryGame">Memory Game</Link>
             </li>
+            <h6>Roll the Bones</h6>
         </nav>
     )
 }
