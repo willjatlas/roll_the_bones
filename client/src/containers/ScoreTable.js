@@ -9,7 +9,7 @@ const ScoreTable = ({highScores}) => {
 
     return (
         <>
-        <h3>High Scores</h3>
+        <h1>High Scores</h1>
         <ol className="score-table">{score}</ol>
         </>
     )
