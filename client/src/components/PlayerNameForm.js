@@ -8,7 +8,7 @@ const PlayerNameForm = ({handleName, disabled})=>{
 
     return(
         <div className="player-name-form" style={disabled ? {pointerEvents: "none",
-                                                      opacity: "0.4"} : {}}>
+                                                      opacity: "0.0"} : {}}>
             <form onSubmit={onSubmit} id="name-entry-form" >
                 <h2>Enter Ye' Pirate Name</h2>
                 <div className="form-element">
