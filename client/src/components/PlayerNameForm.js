@@ -13,7 +13,7 @@ const PlayerNameForm = ({handleName, disabled})=>{
                 <h2>Enter Ye' Pirate Name</h2>
                 <div className="form-element">
                     <label className="labels" 
-                           htmlFor="name">Cap'n: </label>
+                           htmlFor="name">Pirate: </label>
                     <input type="text" 
                            id="name"
                            placeholder="Name..."
