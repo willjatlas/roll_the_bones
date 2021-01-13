@@ -1,5 +1,4 @@
 import {Link} from "react-router-dom";
-import { MakeRandPrefix, MakeRandTitle } from "./RandName";
 import bones from "../images/cross_bones.png"
 import "./ResultsPage.css";
 
@@ -9,7 +8,7 @@ const ResultsPage = (props)=>{
         if(props.location.state.highScore !== true){
             return(
                 <div id="result-text-wrap">
-                    <h1>Avast {MakeRandTitle()} {MakeRandPrefix()} {props.location.state.playerName}</h1>
+                    <h1>Avast {props.location.state.playerName}</h1>
                     <h2>Ye made off with {props.location.state.playerScore} g pieces!</h2>
                     <p>...but ye failed to set a new high score!</p>
                     <Link id="results-link" to="/"> SAIL HOME </Link>
@@ -19,7 +18,7 @@ const ResultsPage = (props)=>{
         else{
             return(
                 <div id="result-text-wrap">
-                    <h1>AVAST YE!, {MakeRandTitle()} {MakeRandPrefix()} {props.location.state.playerName}</h1>
+                    <h1>AVAST YE!, {props.location.state.playerName}</h1>
                     <h2>Ye made off with: {props.location.state.playerScore}
                     g pieces </h2>
                     <h2> ... and you set a new HIGHSCORE</h2>

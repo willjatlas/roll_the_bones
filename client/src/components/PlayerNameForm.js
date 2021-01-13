@@ -1,10 +1,14 @@
+import { MakeRandPrefix, MakeRandTitle } from "./RandName";
+
 const PlayerNameForm = ({handleName, disabled})=>{
     
     const onSubmit = (event)=>{
         event.preventDefault();
-        let playerName = event.target.name.value;
+        let playerName = `${MakeRandTitle()} ${MakeRandPrefix()} ${event.target.name.value}`;
         handleName(playerName);
     }
+
+
 
     return(
         <div className="player-name-form" style={disabled ? {pointerEvents: "none",
