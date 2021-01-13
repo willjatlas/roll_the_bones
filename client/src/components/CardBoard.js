@@ -1,6 +1,8 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect, Component} from 'react'
 import Card from "./Card";
-import '../App.css';
+import './CardBoard.css';
+import useSound from 'use-sound';
+import shorebirds from '../sounds/shorebirds.mp3';
 
 const CardBoard = props => {
   const [cards, setCards] = useState(props.cards)
@@ -48,7 +50,7 @@ const CardBoard = props => {
     var timeContainer = document.getElementById("timer-value");
     var startButton = document.getElementById("start-game");
     var timer = 0;
-    var maxTime = 40;
+    var maxTime = 30;
     var timeout = null;
     function count () {
       timeout = setTimeout(function() {
@@ -58,7 +60,7 @@ const CardBoard = props => {
           count();
         }
         else {
-          alert("Time is up! ye failed its th' plank wit' ye!");
+          alert("Time is up!\nye failed its th' plank wit' ye!");
           startButton.style.display = "inline-block";
         }
       }, 1000);
@@ -66,7 +68,7 @@ const CardBoard = props => {
     function endGame () {
       clearTimeout(timeout);
       startButton.style.display = "inline-block";
-      alert("Ye completed th' game in this time! Jack Sparrow be Yo Ho Ho!");
+      alert("Ye completed th' game in this time!\nJack Sparrow be Yo Ho Ho!");
     }
 
     function startGame () {
@@ -85,7 +87,7 @@ const CardBoard = props => {
       {cards.map(card => (
         <Card {...card} onClick={onCardClick(card)} key={card.id} />
       ))}
-      <h3>Timer: <span id="timer-value">0</span></h3>
+      <h3 className="timer-font">Timer: <span id="timer-value">0</span></h3>
       <button id="start-game" onClick={startTime}>Start Game</button>
       <button id="end-game">End Game</button>
     </div>

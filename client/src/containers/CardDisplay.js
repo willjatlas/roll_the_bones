@@ -9,6 +9,7 @@ import jack5 from "../card_images/jack5.jpeg";
 import jack6 from "../card_images/jack6.jpeg";
 import jack7 from "../card_images/jack7.jpeg";
 import jack8 from "../card_images/jack8.jpg";
+import './CardDisplay.css'
 
 const CardDisplay = () => {
     const cards = buildCards()

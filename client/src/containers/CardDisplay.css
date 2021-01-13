@@ -1,0 +1,9 @@
+.CardDisplay {
+    display: flex;
+    justify-content: center;
+    background-image: url("../images/cardtable.jpg");
+    background-position: center;
+    background-size:unset;
+    background-repeat: no-repeat;
+    align-items: center;
+}
