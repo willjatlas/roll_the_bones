@@ -1,0 +1,11 @@
+#result-display{
+    border-radius: 20px;
+    border-width: 10px;
+    border-style: solid;
+    border-color: rgb(247, 241, 223);
+    background-color: rgb(34, 38, 58);
+    color: rgb(247, 241, 223);
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
