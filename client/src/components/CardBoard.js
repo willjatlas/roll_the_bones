@@ -2,7 +2,6 @@ import React, {useState, useEffect, Component} from 'react'
 import Card from "./Card";
 import './CardBoard.css';
 import useSound from 'use-sound';
-import shorebirds from '../sounds/shorebirds.mp3';
 
 const CardBoard = props => {
   const [cards, setCards] = useState(props.cards)
@@ -50,7 +49,7 @@ const CardBoard = props => {
     var timeContainer = document.getElementById("timer-value");
     var startButton = document.getElementById("start-game");
     var timer = 0;
-    var maxTime = 30;
+    var maxTime = 35;
     var timeout = null;
     function count () {
       timeout = setTimeout(function() {

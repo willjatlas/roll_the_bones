@@ -67,7 +67,13 @@ body {
 }
 
 .timer-font {
-    font-size: 28px;
-    color:rgb(28, 28, 28);
+    font-size: 32px;
+    color:rgb(254, 254, 254);
+    text-align: center;
+    background-color: saddlebrown;
+    background: linear-gradient(90deg, rgba(41,37,36,1) 0%, rgba(116,81,48,1) 48%, rgba(20,20,20,1) 100% );
+    border-style: solid;
+    border-color: black;
+    border-radius: 10px;
 }
 
