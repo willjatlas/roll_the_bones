@@ -22,6 +22,7 @@ body{
     justify-content: center;
     align-items: center;
     text-align: center;
+    box-shadow: 4px 4px #555555af;
 }
 
 .score-wraps{
@@ -35,6 +36,7 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
+    box-shadow: 4px 4px #555555af;
 }
 
 #dice-display{
@@ -52,6 +54,7 @@ body{
     background-color: aquamarine;
     background-size: cover;
     border-radius: 20px;
+    box-shadow: 4px 4px #555555af;
 }
 
 .dice-images{
@@ -65,6 +68,7 @@ body{
     border-width: 5px;
     background-color: rgb(247, 241, 223);
     object-fit: cover;
+    box-shadow: 4px 4px #555555af;
 }
 
 #results-link-wrap{
@@ -77,6 +81,7 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
+    box-shadow: 4px 4px #555555af;
 }
 
 #results-link{
@@ -112,6 +117,7 @@ body{
     font-style: italic;
     font-weight: bolder;
     color: rgb(34, 38, 58);
+    box-shadow: 4px 4px #555555af;
 }
 
 .save-buttons{
@@ -125,6 +131,7 @@ body{
     font-style: italic;
     font-weight: bolder;
     color: rgb(34, 38, 58);
+    box-shadow: 4px 4px #555555af;
 }
 
 .buttons:hover{

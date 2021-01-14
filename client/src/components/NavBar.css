@@ -13,6 +13,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    box-shadow: 4px 4px #555555af;
   }
   
   .navbar > li{
