@@ -9,6 +9,7 @@
     align-items: center;
     text-align: center;
     display:flex;
+    box-shadow: 4px 4px #555555af;
 }
 
 content{

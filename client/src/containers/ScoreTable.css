@@ -1,14 +1,15 @@
 .score-table {
-    border: 5px solid burlywood;
-    border-radius: 4px;
-    background-color: blanchedalmond;
+    border: 10px solid burlywood;
+    border-radius: 20px;
+    background-color: rgba(255, 235, 205, 0.74);
     font-size: 30px;
-    box-shadow: 4px 4px #555555;
+    box-shadow: 4px 4px #555555af;
     text-align: center;
 }
 
 #score{
     margin: 10px;
+    color: rgb(102, 12, 12)
 }
 
 .ordered-list{

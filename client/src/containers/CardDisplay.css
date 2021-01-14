@@ -7,4 +7,8 @@
     background-position: center;
     background-repeat: no-repeat;
     align-items: center;
+    border: 10px solid burlywood;
+    border-radius: 20px;
+    box-shadow: 4px 4px #555555af;
 }
+
